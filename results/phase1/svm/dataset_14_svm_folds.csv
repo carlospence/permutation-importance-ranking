@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds
+dataset_14,1,0.9604,0.7982,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",73.61
+dataset_14,2,0.958,0.818,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",79.11
+dataset_14,3,0.9688,0.8915,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",71.9
+dataset_14,4,0.9772,0.9009,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",76.62
+dataset_14,5,0.9484,0.8003,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",74.29
+dataset_14,6,0.964,0.8476,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",84.29
+dataset_14,7,0.9448,0.8,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",74.21
+dataset_14,8,0.9508,0.8523,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",75.67
+dataset_14,9,0.9628,0.8728,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",72.5
+dataset_14,10,0.9628,0.8506,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",76.77

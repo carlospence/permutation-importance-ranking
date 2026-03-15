@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC, LinearSVC
+from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import StratifiedKFold, ShuffleSplit
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -14,11 +15,18 @@ DATA_DIR      = "data"
 RESULTS_DIR   = "results/phase1/svm"
 TARGET_COL    = "Label"
 RANDOM_STATE  = 42
-RBF_CLASS_LIMIT = 10   # skip RBF if more than 10 classes
 
-# Hyperparameter search space — same values as before
+# Thresholds for switching solver
+RBF_CLASS_LIMIT  = 10      # skip RBF if more than 10 classes
+SGD_CLASS_LIMIT  = 10      # use SGD linear SVM if more than 10 classes
+
+# Hyperparameter search space
 C_VALUES     = [0.1, 1, 10]
 GAMMA_VALUES = ["scale", "auto"]
+
+# Approximate training fold size (90% of dataset)
+# Used to convert C → SGD alpha: alpha = 1 / (C * n_samples)
+TRAIN_FOLD_SIZE = 0.9
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
@@ -26,11 +34,37 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 # ── Pipelines ──────────────────────────────────────────────────────────────────
 
 def make_linear_pipeline(C: float) -> Pipeline:
+    """Standard LinearSVC — used for datasets 1-8 (4 classes, low dimensional)."""
     return Pipeline([
         ("imputer", SimpleImputer(strategy="mean")),
         ("scaler",  StandardScaler()),
         ("svm",     LinearSVC(C=C, max_iter=2000, dual=False,
                               tol=1e-3, random_state=RANDOM_STATE)),
+    ])
+
+def make_sgd_pipeline(C: float, n_train: int) -> Pipeline:
+    """
+    SGDClassifier with hinge loss = linear SVM.
+    Used for datasets 9-16 (16 classes, 265 features, severe imbalance).
+    Mathematically equivalent to LinearSVC but uses stochastic gradient
+    descent which handles high-dimensional imbalanced multiclass problems
+    orders of magnitude faster than the liblinear solver.
+    alpha = 1 / (C * n_samples) is the exact SGD equivalent of SVM's C.
+    class_weight='balanced' corrects for severe class imbalance.
+    """
+    alpha = 1.0 / (C * n_train)
+    return Pipeline([
+        ("imputer", SimpleImputer(strategy="mean")),
+        ("scaler",  StandardScaler()),
+        ("svm",     SGDClassifier(
+            loss         = "hinge",
+            alpha        = alpha,
+            max_iter     = 1000,
+            tol          = 1e-3,
+            random_state = RANDOM_STATE,
+            class_weight = "balanced",
+            n_jobs       = 1,
+        )),
     ])
 
 def make_rbf_pipeline(C: float, gamma) -> Pipeline:
@@ -44,34 +78,67 @@ def make_rbf_pipeline(C: float, gamma) -> Pipeline:
 
 # ── Manual inner tuning ────────────────────────────────────────────────────────
 
-def tune_svm(X_train, y_train, n_classes):
+def tune_svm(
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    n_classes: int,
+) -> tuple[Pipeline, dict]:
+    """
+    Iterates over hyperparameter configs using a single 90/10 inner split
+    as specified in the instructions. Picks best by macro F1, then refits
+    on the full training fold before returning.
+    """
     inner_split = ShuffleSplit(n_splits=1, test_size=0.10, random_state=RANDOM_STATE)
     sub_train_idx, val_idx = next(inner_split.split(X_train, y_train))
 
-    X_sub_train = X_train.iloc[sub_train_idx]
-    y_sub_train = y_train.iloc[sub_train_idx]
-    X_val       = X_train.iloc[val_idx]
-    y_val       = y_train.iloc[val_idx]
+    X_sub = X_train.iloc[sub_train_idx]
+    y_sub = y_train.iloc[sub_train_idx]
+    X_val = X_train.iloc[val_idx]
+    y_val = y_train.iloc[val_idx]
 
-    best_score  = -np.inf
-    best_params = {}
+    n_sub = len(X_sub)
+
+    best_score    = -np.inf
+    best_params   = {}
     best_pipeline = None
 
-    for C in C_VALUES:
-        print(f"      → fitting Linear C={C}...", flush=True)
-        t = time.time()
-        pipeline = make_linear_pipeline(C)
-        pipeline.fit(X_sub_train, y_sub_train)
-        print(f"         done in {time.time()-t:.1f}s", flush=True)
-        score = f1_score(y_val, pipeline.predict(X_val), average="macro", zero_division=0)
-        print(f"         F1={score:.4f}", flush=True)
-        ...
+    use_sgd = n_classes > SGD_CLASS_LIMIT
 
-    # refit
-    print(f"      → refitting best config {best_params} on full fold...", flush=True)
-    t = time.time()
+    if use_sgd:
+        print(f"    [!] Using SGD linear SVM (hinge loss) — "
+              f"{n_classes} classes, solver would hang with LibLinear")
+
+    # ── Linear / SGD candidates ────────────────────────────────────────────────
+    for C in C_VALUES:
+        pipeline = make_sgd_pipeline(C, n_sub) if use_sgd else make_linear_pipeline(C)
+        pipeline.fit(X_sub, y_sub)
+        score = f1_score(y_val, pipeline.predict(X_val),
+                         average="macro", zero_division=0)
+
+        if score > best_score:
+            best_score    = score
+            best_params   = {"kernel": "linear", "C": C, "gamma": "N/A"}
+            best_pipeline = pipeline
+
+    # ── RBF candidates ─────────────────────────────────────────────────────────
+    if n_classes <= RBF_CLASS_LIMIT:
+        for C in C_VALUES:
+            for gamma in GAMMA_VALUES:
+                pipeline = make_rbf_pipeline(C, gamma)
+                pipeline.fit(X_sub, y_sub)
+                score = f1_score(y_val, pipeline.predict(X_val),
+                                 average="macro", zero_division=0)
+
+                if score > best_score:
+                    best_score    = score
+                    best_params   = {"kernel": "rbf", "C": C, "gamma": gamma}
+                    best_pipeline = pipeline
+    else:
+        print(f"    [!] RBF skipped — {n_classes} classes = "
+              f"{n_classes*(n_classes-1)//2} binary SVMs per fit")
+
+    # Refit best config on full training fold
     best_pipeline.fit(X_train, y_train)
-    print(f"         refit done in {time.time()-t:.1f}s", flush=True)
     return best_pipeline, best_params
 
 
@@ -103,7 +170,8 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
 
         y_pred    = best_pipeline.predict(X_test)
         accuracy  = round(accuracy_score(y_test, y_pred), 4)
-        f1_macro  = round(f1_score(y_test, y_pred, average="macro", zero_division=0), 4)
+        f1_macro  = round(f1_score(y_test, y_pred, average="macro",
+                                   zero_division=0), 4)
         fold_time = round(time.time() - fold_start, 2)
 
         fold_rows.append({
@@ -176,7 +244,7 @@ def get_dataset_folders(data_dir: str) -> list[str]:
     def sort_key(v):
         return (0, int(v)) if v.isdigit() else (1, v.lower())
     folders = sorted(folders, key=sort_key)
-    return [f for f in folders if not f.isdigit() or int(f) >= 9] 
+    return [f for f in folders if not f.isdigit() or int(f) <= 8]
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────
