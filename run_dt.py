@@ -6,55 +6,39 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC, LinearSVC
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import StratifiedKFold, ShuffleSplit, GridSearchCV
 from sklearn.metrics import accuracy_score, f1_score
 
-DATA_DIR      = "data"
-RESULTS_DIR   = "results/phase1/svm"
-TARGET_COL    = "Label"
-RANDOM_STATE  = 42
-
-# RBF is skipped if EITHER condition is true:
-RBF_ROW_LIMIT   = 50_000   # too many rows  → kernel matrix too large
-RBF_CLASS_LIMIT = 10       # too many classes → 120+ one-vs-one classifiers per fit
+DATA_DIR     = "data"
+RESULTS_DIR  = "results/phase1/dt"
+TARGET_COL   = "Label"
+RANDOM_STATE = 42
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
-# ── Pipelines & grids ──────────────────────────────────────────────────────────
+# ── Pipeline & grid ────────────────────────────────────────────────────────────
 
-def get_svm_candidates(n_train: int, n_classes: int):
-    """
-    Returns (pipeline, param_grid) pairs.
-    RBF is skipped when data is too large OR when there are too many classes.
-    With 10+ classes, RBF trains n_classes*(n_classes-1)/2 binary SVMs per fit
-    which becomes prohibitively slow (16 classes = 120 binary classifiers).
-    """
-    base = [
+def get_dt_pipeline():
+    return Pipeline([
         ("imputer", SimpleImputer(strategy="mean")),
         ("scaler",  StandardScaler()),
-    ]
-
-    linear = Pipeline(base + [
-        ("svm", LinearSVC(max_iter=20000, random_state=RANDOM_STATE, dual="auto"))
+        ("dt",      DecisionTreeClassifier(random_state=RANDOM_STATE)),
     ])
-    candidates = [(linear, {"svm__C": [0.1, 1, 10]})]
 
-    if n_train > RBF_ROW_LIMIT:
-        print(f"    [!] RBF skipped — {n_train:,} rows exceeds limit of {RBF_ROW_LIMIT:,}")
-    elif n_classes > RBF_CLASS_LIMIT:
-        binary_fits = n_classes * (n_classes - 1) // 2
-        print(f"    [!] RBF skipped — {n_classes} classes = {binary_fits} binary SVMs per fit")
-    else:
-        rbf = Pipeline(base + [
-            ("svm", SVC(kernel="rbf", random_state=RANDOM_STATE, cache_size=1000))
-        ])
-        candidates.append(
-            (rbf, {"svm__C": [0.1, 1, 10], "svm__gamma": ["scale", "auto"]})
-        )
-
-    return candidates
+def get_dt_param_grid():
+    """
+    Tuning max_depth and min_samples_split as specified in the instructions.
+    None for max_depth = fully grown tree (no depth limit).
+    Higher min_samples_split = more regularisation, avoids overfitting on
+    imbalanced datasets like 9-16.
+    """
+    return {
+        "dt__max_depth":         [3, 5, 10, None],
+        "dt__min_samples_split": [2, 5, 10],
+        "dt__criterion":         ["gini", "entropy"],
+    }
 
 
 # ── Core evaluation ────────────────────────────────────────────────────────────
@@ -69,7 +53,6 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
     print(f"\n{'='*60}")
     print(f"Dataset  : {dataset_name}")
     print(f"Shape    : {X.shape}  |  Classes: {n_classes}")
-    print(f"Balance  : {y.value_counts().to_dict()}")
     print(f"{'='*60}")
 
     outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=RANDOM_STATE)
@@ -84,41 +67,34 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
         X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
         y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
 
-        candidates = get_svm_candidates(len(X_train), n_classes)
+        grid = GridSearchCV(
+            estimator  = get_dt_pipeline(),
+            param_grid = get_dt_param_grid(),
+            cv         = inner_cv,
+            scoring    = "f1_macro",
+            n_jobs     = -1,
+            refit      = True,
+        )
+        grid.fit(X_train, y_train)
 
-        best_score, best_estimator, best_params = -np.inf, None, {}
+        best_estimator = grid.best_estimator_
+        best_params    = grid.best_params_
+        y_pred         = best_estimator.predict(X_test)
 
-        for pipeline, param_grid in candidates:
-            grid = GridSearchCV(
-                estimator  = pipeline,
-                param_grid = param_grid,
-                cv         = inner_cv,
-                scoring    = "f1_macro",
-                n_jobs     = -1,
-                refit      = True,
-            )
-            grid.fit(X_train, y_train)
-
-            if grid.best_score_ > best_score:
-                best_score     = grid.best_score_
-                best_estimator = grid.best_estimator_
-                best_params    = grid.best_params_
-
-        y_pred    = best_estimator.predict(X_test)
         accuracy  = round(accuracy_score(y_test, y_pred), 4)
         f1_macro  = round(f1_score(y_test, y_pred, average="macro"), 4)
         fold_time = round(time.time() - fold_start, 2)
 
-        clean_params = {k.replace("svm__", ""): v for k, v in best_params.items()}
+        clean_params = {k.replace("dt__", ""): v for k, v in best_params.items()}
 
         fold_rows.append({
             "Dataset":           dataset_name,
             "Fold":              fold,
             "Accuracy":          accuracy,
             "F1":                f1_macro,
-            "Best_C":            clean_params.get("C"),
-            "Best_Kernel":       clean_params.get("kernel", "linear"),
-            "Best_Gamma":        clean_params.get("gamma", "N/A"),
+            "Best_Max_Depth":    clean_params.get("max_depth"),
+            "Best_Min_Split":    clean_params.get("min_samples_split"),
+            "Best_Criterion":    clean_params.get("criterion"),
             "Parameters":        str(clean_params),
             "Fold_Time_Seconds": fold_time,
         })
@@ -160,8 +136,8 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
 # ── I/O ────────────────────────────────────────────────────────────────────────
 
 def save_results(folds_df: pd.DataFrame, summary_df: pd.DataFrame, dataset_name: str) -> None:
-    folds_path   = os.path.join(RESULTS_DIR, f"{dataset_name}_svm_folds.csv")
-    summary_path = os.path.join(RESULTS_DIR, f"{dataset_name}_svm_summary.csv")
+    folds_path   = os.path.join(RESULTS_DIR, f"{dataset_name}_dt_folds.csv")
+    summary_path = os.path.join(RESULTS_DIR, f"{dataset_name}_dt_summary.csv")
     folds_df.to_csv(folds_path,    index=False)
     summary_df.to_csv(summary_path, index=False)
     print(f"  Saved: {folds_path}")
@@ -171,7 +147,7 @@ def save_results(folds_df: pd.DataFrame, summary_df: pd.DataFrame, dataset_name:
 def combine_all_summaries(frames: list[pd.DataFrame]) -> None:
     if not frames:
         return
-    out_path = os.path.join(RESULTS_DIR, "all_datasets_svm_summary.csv")
+    out_path = os.path.join(RESULTS_DIR, "all_datasets_dt_summary.csv")
     pd.concat(frames, ignore_index=True).to_csv(out_path, index=False)
     print(f"\nCombined summary → {out_path}")
 

@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Best_C,Best_Kernel,Best_Gamma,Parameters,Fold_Time_Seconds
+dataset_9,1,0.9736,0.9005,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",3556.5
+dataset_9,2,0.97,0.81,10.0,linear,N/A,{'C': 10},3097.5
+dataset_9,3,0.9652,0.8373,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",2695.66
+dataset_9,4,0.9676,0.8826,0.1,linear,N/A,{'C': 0.1},1905.43
+dataset_9,5,0.9532,0.8067,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",2496.95
+dataset_9,6,0.97,0.8642,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",2551.42
+dataset_9,7,0.9712,0.8937,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",1799.24
+dataset_9,8,0.9652,0.8978,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",1687.5
+dataset_9,9,0.9616,0.8171,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",2678.53
+dataset_9,10,0.97,0.8824,10.0,linear,scale,"{'C': 10, 'gamma': 'scale'}",2563.44
