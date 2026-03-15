@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Best_Max_Depth,Best_Min_Split,Best_Criterion,Parameters,Fold_Time_Seconds
+dataset_9,1,0.9808,0.8822,,2,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",2.7
+dataset_9,2,0.9796,0.8436,,5,gini,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}",2.49
+dataset_9,3,0.9808,0.8843,,2,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",3.11
+dataset_9,4,0.988,0.9026,,2,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",3.13
+dataset_9,5,0.9844,0.8707,,2,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",3.01
+dataset_9,6,0.9844,0.8296,,2,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",2.83
+dataset_9,7,0.988,0.9176,,2,gini,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",2.57
+dataset_9,8,0.9856,0.8881,,5,gini,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}",2.6
+dataset_9,9,0.9772,0.8282,10.0,5,entropy,"{'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 5}",2.64
+dataset_9,10,0.9844,0.9079,,5,entropy,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}",2.56

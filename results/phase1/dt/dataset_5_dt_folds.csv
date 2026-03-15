@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Best_Max_Depth,Best_Min_Split,Best_Criterion,Parameters,Fold_Time_Seconds
+dataset_5,1,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.44
+dataset_5,2,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.44
+dataset_5,3,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.63
+dataset_5,4,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.42
+dataset_5,5,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.39
+dataset_5,6,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.4
+dataset_5,7,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.37
+dataset_5,8,0.999,0.9824,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.43
+dataset_5,9,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.41
+dataset_5,10,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.38
