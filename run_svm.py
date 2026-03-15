@@ -7,54 +7,72 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC, LinearSVC
-from sklearn.model_selection import StratifiedKFold, ShuffleSplit, GridSearchCV
+from sklearn.model_selection import StratifiedKFold, ShuffleSplit
 from sklearn.metrics import accuracy_score, f1_score
 
 DATA_DIR      = "data"
 RESULTS_DIR   = "results/phase1/svm"
 TARGET_COL    = "Label"
 RANDOM_STATE  = 42
+RBF_CLASS_LIMIT = 10   # skip RBF if more than 10 classes
 
-# RBF is skipped if EITHER condition is true:
-RBF_ROW_LIMIT   = 50_000   # too many rows  → kernel matrix too large
-RBF_CLASS_LIMIT = 10       # too many classes → 120+ one-vs-one classifiers per fit
+# Hyperparameter search space — same values as before
+C_VALUES     = [0.1, 1, 10]
+GAMMA_VALUES = ["scale", "auto"]
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 
-# ── Pipelines & grids ──────────────────────────────────────────────────────────
+# ── Pipelines ──────────────────────────────────────────────────────────────────
 
-def get_svm_candidates(n_train: int, n_classes: int):
-    """
-    Returns (pipeline, param_grid) pairs.
-    RBF is skipped when data is too large OR when there are too many classes.
-    With 10+ classes, RBF trains n_classes*(n_classes-1)/2 binary SVMs per fit
-    which becomes prohibitively slow (16 classes = 120 binary classifiers).
-    """
-    base = [
+def make_linear_pipeline(C: float) -> Pipeline:
+    return Pipeline([
         ("imputer", SimpleImputer(strategy="mean")),
         ("scaler",  StandardScaler()),
-    ]
-
-    linear = Pipeline(base + [
-        ("svm", LinearSVC(max_iter=20000, random_state=RANDOM_STATE, dual="auto"))
+        ("svm",     LinearSVC(C=C, max_iter=2000, dual=False,
+                              tol=1e-3, random_state=RANDOM_STATE)),
     ])
-    candidates = [(linear, {"svm__C": [0.1, 1, 10]})]
 
-    if n_train > RBF_ROW_LIMIT:
-        print(f"    [!] RBF skipped — {n_train:,} rows exceeds limit of {RBF_ROW_LIMIT:,}")
-    elif n_classes > RBF_CLASS_LIMIT:
-        binary_fits = n_classes * (n_classes - 1) // 2
-        print(f"    [!] RBF skipped — {n_classes} classes = {binary_fits} binary SVMs per fit")
-    else:
-        rbf = Pipeline(base + [
-            ("svm", SVC(kernel="rbf", random_state=RANDOM_STATE, cache_size=1000))
-        ])
-        candidates.append(
-            (rbf, {"svm__C": [0.1, 1, 10], "svm__gamma": ["scale", "auto"]})
-        )
+def make_rbf_pipeline(C: float, gamma) -> Pipeline:
+    return Pipeline([
+        ("imputer", SimpleImputer(strategy="mean")),
+        ("scaler",  StandardScaler()),
+        ("svm",     SVC(C=C, kernel="rbf", gamma=gamma,
+                        random_state=RANDOM_STATE, cache_size=1000)),
+    ])
 
-    return candidates
+
+# ── Manual inner tuning ────────────────────────────────────────────────────────
+
+def tune_svm(X_train, y_train, n_classes):
+    inner_split = ShuffleSplit(n_splits=1, test_size=0.10, random_state=RANDOM_STATE)
+    sub_train_idx, val_idx = next(inner_split.split(X_train, y_train))
+
+    X_sub_train = X_train.iloc[sub_train_idx]
+    y_sub_train = y_train.iloc[sub_train_idx]
+    X_val       = X_train.iloc[val_idx]
+    y_val       = y_train.iloc[val_idx]
+
+    best_score  = -np.inf
+    best_params = {}
+    best_pipeline = None
+
+    for C in C_VALUES:
+        print(f"      → fitting Linear C={C}...", flush=True)
+        t = time.time()
+        pipeline = make_linear_pipeline(C)
+        pipeline.fit(X_sub_train, y_sub_train)
+        print(f"         done in {time.time()-t:.1f}s", flush=True)
+        score = f1_score(y_val, pipeline.predict(X_val), average="macro", zero_division=0)
+        print(f"         F1={score:.4f}", flush=True)
+        ...
+
+    # refit
+    print(f"      → refitting best config {best_params} on full fold...", flush=True)
+    t = time.time()
+    best_pipeline.fit(X_train, y_train)
+    print(f"         refit done in {time.time()-t:.1f}s", flush=True)
+    return best_pipeline, best_params
 
 
 # ── Core evaluation ────────────────────────────────────────────────────────────
@@ -69,13 +87,10 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
     print(f"\n{'='*60}")
     print(f"Dataset  : {dataset_name}")
     print(f"Shape    : {X.shape}  |  Classes: {n_classes}")
-    print(f"Balance  : {y.value_counts().to_dict()}")
     print(f"{'='*60}")
 
-    outer_cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=RANDOM_STATE)
-    inner_cv = ShuffleSplit(n_splits=1, test_size=0.10, random_state=RANDOM_STATE)
-
-    fold_rows     = []
+    outer_cv  = StratifiedKFold(n_splits=10, shuffle=True, random_state=RANDOM_STATE)
+    fold_rows = []
     dataset_start = time.time()
 
     for fold, (train_idx, test_idx) in enumerate(outer_cv.split(X, y), start=1):
@@ -84,49 +99,29 @@ def evaluate_dataset(csv_path: str, dataset_name: str) -> tuple[pd.DataFrame, pd
         X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
         y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
 
-        candidates = get_svm_candidates(len(X_train), n_classes)
+        best_pipeline, best_params = tune_svm(X_train, y_train, n_classes)
 
-        best_score, best_estimator, best_params = -np.inf, None, {}
-
-        for pipeline, param_grid in candidates:
-            grid = GridSearchCV(
-                estimator  = pipeline,
-                param_grid = param_grid,
-                cv         = inner_cv,
-                scoring    = "f1_macro",
-                n_jobs     = -1,
-                refit      = True,
-            )
-            grid.fit(X_train, y_train)
-
-            if grid.best_score_ > best_score:
-                best_score     = grid.best_score_
-                best_estimator = grid.best_estimator_
-                best_params    = grid.best_params_
-
-        y_pred    = best_estimator.predict(X_test)
+        y_pred    = best_pipeline.predict(X_test)
         accuracy  = round(accuracy_score(y_test, y_pred), 4)
-        f1_macro  = round(f1_score(y_test, y_pred, average="macro"), 4)
+        f1_macro  = round(f1_score(y_test, y_pred, average="macro", zero_division=0), 4)
         fold_time = round(time.time() - fold_start, 2)
-
-        clean_params = {k.replace("svm__", ""): v for k, v in best_params.items()}
 
         fold_rows.append({
             "Dataset":           dataset_name,
             "Fold":              fold,
             "Accuracy":          accuracy,
             "F1":                f1_macro,
-            "Best_C":            clean_params.get("C"),
-            "Best_Kernel":       clean_params.get("kernel", "linear"),
-            "Best_Gamma":        clean_params.get("gamma", "N/A"),
-            "Parameters":        str(clean_params),
+            "Best_Kernel":       best_params.get("kernel"),
+            "Best_C":            best_params.get("C"),
+            "Best_Gamma":        best_params.get("gamma"),
+            "Parameters":        str(best_params),
             "Fold_Time_Seconds": fold_time,
         })
 
         print(
             f"  Fold {fold:>2}/10 | "
             f"Acc={accuracy:.4f} | F1={f1_macro:.4f} | "
-            f"Params={clean_params} | Time={fold_time:.1f}s"
+            f"Params={best_params} | Time={fold_time:.1f}s"
         )
 
     folds_df   = pd.DataFrame(fold_rows)
@@ -180,7 +175,8 @@ def get_dataset_folders(data_dir: str) -> list[str]:
     folders = [f for f in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, f))]
     def sort_key(v):
         return (0, int(v)) if v.isdigit() else (1, v.lower())
-    return sorted(folders, key=sort_key)
+    folders = sorted(folders, key=sort_key)
+    return [f for f in folders if not f.isdigit() or int(f) >= 9] 
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────

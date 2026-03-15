@@ -1,11 +1,11 @@
-Dataset,Fold,Accuracy,F1,Best_C,Best_Kernel,Best_Gamma,Parameters,Fold_Time_Seconds
-dataset_5,1,0.975,0.9574,10,linear,N/A,{'C': 10},12.8
-dataset_5,2,0.9645,0.936,10,linear,scale,"{'C': 10, 'gamma': 'scale'}",11.76
-dataset_5,3,0.9833,0.9826,10,linear,N/A,{'C': 10},11.54
-dataset_5,4,0.9791,0.9734,10,linear,N/A,{'C': 10},11.75
-dataset_5,5,0.9875,0.9825,10,linear,N/A,{'C': 10},11.73
-dataset_5,6,0.9729,0.9705,10,linear,N/A,{'C': 10},10.39
-dataset_5,7,0.9843,0.9793,10,linear,N/A,{'C': 10},11.41
-dataset_5,8,0.9875,0.9669,10,linear,N/A,{'C': 10},10.49
-dataset_5,9,0.9885,0.9881,10,linear,N/A,{'C': 10},11.06
-dataset_5,10,0.9802,0.9746,10,linear,N/A,{'C': 10},10.98
+Dataset,Fold,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds
+dataset_5,1,0.975,0.9574,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",26.78
+dataset_5,2,0.9645,0.936,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",29.09
+dataset_5,3,0.9833,0.9826,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",30.52
+dataset_5,4,0.9791,0.9734,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",57.86
+dataset_5,5,0.9875,0.9825,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",63.11
+dataset_5,6,0.9729,0.9705,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",34.04
+dataset_5,7,0.9843,0.9793,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",34.46
+dataset_5,8,0.9875,0.9669,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",27.04
+dataset_5,9,0.9885,0.9881,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",35.16
+dataset_5,10,0.9802,0.9746,linear,10,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",28.49
