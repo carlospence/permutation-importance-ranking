@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Parameters,Best_K,Best_Weights,Best_Metric,Fold_Time_Seconds
+dataset_12,1,0.787515006002401,0.10915882265009004,"{'knn__metric': 'euclidean', 'knn__n_neighbors': 7, 'knn__weights': 'uniform'}",7,uniform,euclidean,28.25
+dataset_12,2,0.8127250900360145,0.10903922121154797,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,manhattan,28.91
+dataset_12,3,0.8223289315726291,0.08984250961800128,"{'knn__metric': 'euclidean', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,euclidean,27.8
+dataset_12,4,0.7983193277310925,0.1454279564556743,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,manhattan,29.11
+dataset_12,5,0.8199279711884754,0.12470244651944852,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 7, 'knn__weights': 'distance'}",7,distance,manhattan,28.35
+dataset_12,6,0.7947178871548619,0.1179476367807064,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,manhattan,30.89
+dataset_12,7,0.7959183673469388,0.11921872988505221,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,manhattan,28.64
+dataset_12,8,0.8211284513805522,0.08742430819438188,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 3, 'knn__weights': 'distance'}",3,distance,manhattan,28.58
+dataset_12,9,0.78031212484994,0.1292296280918485,"{'knn__metric': 'manhattan', 'knn__n_neighbors': 5, 'knn__weights': 'distance'}",5,distance,manhattan,27.55
+dataset_12,10,0.8103241296518607,0.08856419599455055,"{'knn__metric': 'euclidean', 'knn__n_neighbors': 7, 'knn__weights': 'distance'}",7,distance,euclidean,27.97
