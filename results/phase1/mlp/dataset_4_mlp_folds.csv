@@ -1,0 +1,11 @@
+Dataset,Fold,Accuracy,F1,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha,Parameters,Fold_Time_Seconds
+dataset_4,1,0.8801,0.4592,"(64, 64)",0.001,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.001}",12.6
+dataset_4,2,0.8551,0.3665,"(64,)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",7.02
+dataset_4,3,0.8728,0.4485,"(64, 64)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",9.77
+dataset_4,4,0.8674,0.4714,"(64, 64)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",10.61
+dataset_4,5,0.8539,0.4345,"(64,)",0.01,0.0001,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",8.71
+dataset_4,6,0.858,0.4471,"(64, 64)",0.01,0.0001,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",9.37
+dataset_4,7,0.8507,0.4123,"(64, 64)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",11.08
+dataset_4,8,0.8549,0.4147,"(64,)",0.001,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.001}",7.88
+dataset_4,9,0.8674,0.4498,"(128,)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",8.73
+dataset_4,10,0.8559,0.435,"(64,)",0.01,0.001,"{'alpha': 0.001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",7.5
