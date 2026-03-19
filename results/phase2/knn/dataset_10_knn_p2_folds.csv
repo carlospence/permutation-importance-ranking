@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_10,1,265,13,"F32, F51, F59, F68, F92, F105, F108, F164, F192, F226, F227, F236, F249",0.934,0.4369,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",47.96,KNN,3.0,manhattan,,,,,,,
+dataset_10,2,265,12,"F32, F51, F59, F79, F92, F105, F108, F164, F192, F226, F236, F249",0.9196,0.4163,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",15.48,KNN,3.0,manhattan,,,,,,,
+dataset_10,3,265,14,"F15, F17, F32, F51, F92, F105, F108, F164, F185, F192, F226, F227, F236, F249",0.9184,0.4039,,,,"{'metric': 'euclidean', 'n_neighbors': 7}",16.13,KNN,7.0,euclidean,,,,,,,
+dataset_10,4,265,17,"F15, F17, F21, F32, F59, F68, F92, F105, F108, F134, F164, F192, F226, F231, F236, F249, F252",0.9172,0.4019,,,,"{'metric': 'euclidean', 'n_neighbors': 5}",25.14,KNN,5.0,euclidean,,,,,,,
+dataset_10,5,265,12,"F32, F51, F92, F105, F108, F164, F178, F192, F226, F231, F236, F249",0.9232,0.4683,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",15.75,KNN,3.0,manhattan,,,,,,,
+dataset_10,6,265,13,"F32, F43, F51, F79, F92, F105, F108, F164, F192, F226, F236, F249, F250",0.928,0.4411,,,,"{'metric': 'euclidean', 'n_neighbors': 3}",16.42,KNN,3.0,euclidean,,,,,,,
+dataset_10,7,265,16,"F17, F32, F51, F59, F68, F92, F105, F108, F164, F167, F192, F226, F227, F236, F249, F250",0.9352,0.3957,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",16.56,KNN,3.0,manhattan,,,,,,,
+dataset_10,8,265,17,"F21, F32, F51, F68, F92, F105, F108, F164, F167, F185, F192, F196, F226, F230, F236, F249, F255",0.9232,0.3956,,,,"{'metric': 'manhattan', 'n_neighbors': 5}",16.86,KNN,5.0,manhattan,,,,,,,
+dataset_10,9,265,12,"F4, F15, F32, F51, F92, F105, F164, F185, F192, F226, F236, F249",0.9136,0.3744,,,,"{'metric': 'manhattan', 'n_neighbors': 5}",15.96,KNN,5.0,manhattan,,,,,,,
+dataset_10,10,265,11,"F21, F32, F51, F92, F105, F108, F164, F192, F226, F236, F249",0.9292,0.4244,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",16.0,KNN,3.0,manhattan,,,,,,,

@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_2,1,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9708,0.6597,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",15.54,RF,,,,2.0,,200.0,,,
+dataset_2,2,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9572,0.5969,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",13.75,RF,,,,2.0,,100.0,,,
+dataset_2,3,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9572,0.5197,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}",11.78,RF,,,10.0,5.0,,100.0,,,
+dataset_2,4,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9635,0.6549,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",13.47,RF,,,,2.0,,200.0,,,
+dataset_2,5,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9551,0.5891,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",12.21,RF,,,,2.0,,100.0,,,
+dataset_2,6,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9676,0.5616,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",15.35,RF,,,,2.0,,100.0,,,
+dataset_2,7,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9624,0.5823,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",25.65,RF,,,,2.0,,200.0,,,
+dataset_2,8,19,7,"F1, F2, F10, F11, F12, F13, F15",0.9624,0.5713,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",23.35,RF,,,,2.0,,100.0,,,
+dataset_2,9,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.9697,0.6998,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",15.19,RF,,,,2.0,,200.0,,,
+dataset_2,10,19,7,"F1, F2, F10, F11, F12, F13, F15",0.9593,0.5537,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",12.94,RF,,,,2.0,,100.0,,,

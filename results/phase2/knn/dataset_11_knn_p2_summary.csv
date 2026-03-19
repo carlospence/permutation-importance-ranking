@@ -1,0 +1,2 @@
+Dataset,Classifier,Accuracy Mean,Accuracy Std,F1 Mean,F1 Std,Accuracy Mean ± Std,F1 Mean ± Std,Avg_Features_Before,Avg_Features_After,Total_Time_Seconds
+dataset_11,KNN,0.8476,0.0107,0.1864,0.0275,0.8476 ± 0.0107,0.1865 ± 0.0275,265,9.3,12260.69

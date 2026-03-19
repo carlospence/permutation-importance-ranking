@@ -1,0 +1,2 @@
+Dataset,Classifier,Accuracy Mean,Accuracy Std,F1 Mean,F1 Std,Accuracy Mean ± Std,F1 Mean ± Std,Avg_Features_Before,Avg_Features_After,Total_Time_Seconds
+dataset_15,SVM,0.6206,0.1103,0.1064,0.0519,0.6206 ± 0.1103,0.1064 ± 0.0519,265,7.7,11070.36

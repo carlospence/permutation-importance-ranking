@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_8,1,19,3,"F1, F2, F13",0.9791,0.726,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",23.9,SVM,,,,,,,,,
+dataset_8,2,19,2,"F1, F2",0.9791,0.7252,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",27.32,SVM,,,,,,,,,
+dataset_8,3,19,4,"F1, F2, F5, F13",0.975,0.7221,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",24.64,SVM,,,,,,,,,
+dataset_8,4,19,3,"F1, F2, F13",0.9781,0.9669,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",23.3,SVM,,,,,,,,,
+dataset_8,5,19,3,"F1, F2, F5",0.9864,0.9821,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",27.3,SVM,,,,,,,,,
+dataset_8,6,19,3,"F1, F5, F13",0.9645,0.7145,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",25.31,SVM,,,,,,,,,
+dataset_8,7,19,3,"F1, F5, F13",0.9687,0.7179,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",25.09,SVM,,,,,,,,,
+dataset_8,8,19,3,"F1, F2, F13",0.9718,0.7147,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",23.2,SVM,,,,,,,,,
+dataset_8,9,19,4,"F1, F2, F5, F13",0.976,0.7226,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",24.54,SVM,,,,,,,,,
+dataset_8,10,19,4,"F1, F2, F5, F13",0.9718,0.7185,rbf,10.0,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",25.73,SVM,,,,,,,,,

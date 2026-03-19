@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_4,1,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8728,0.4138,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",23.2,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_4,2,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.8634,0.4289,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",15.47,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_4,3,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8644,0.4068,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",17.44,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_4,4,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.8601,0.3653,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",17.67,MLP,,,,,,,"(64,)",0.01,0.001
+dataset_4,5,19,8,"F1, F2, F5, F10, F11, F12, F13, F15",0.8486,0.3938,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",30.66,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_4,6,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8486,0.4088,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.001}",26.53,MLP,,,,,,,"(64, 64)",0.001,0.001
+dataset_4,7,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8559,0.4631,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",20.42,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_4,8,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8539,0.2665,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",18.78,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_4,9,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8643,0.4259,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",18.09,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_4,10,19,9,"F1, F2, F5, F10, F11, F12, F13, F15, F16",0.8424,0.401,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.001}",20.29,MLP,,,,,,,"(64, 64)",0.001,0.0001

@@ -1,0 +1,2 @@
+Dataset,Classifier,Accuracy Mean,Accuracy Std,F1 Mean,F1 Std,Accuracy Mean ± Std,F1 Mean ± Std,Avg_Features_Before,Avg_Features_After,Total_Time_Seconds
+dataset_12,MLP,0.8114,0.0024,0.0699,0.0163,0.8114 ± 0.0024,0.0699 ± 0.0163,265,46.6,12467.69

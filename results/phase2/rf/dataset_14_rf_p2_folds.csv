@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.988,0.9065,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",15.32,RF,,,,2.0,,100.0,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.9316,0.7392,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}",16.34,RF,,,,5.0,,100.0,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.9772,0.8901,,,,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 200}",16.06,RF,,,10.0,2.0,,200.0,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.9772,0.8649,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}",15.91,RF,,,,5.0,,200.0,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.9772,0.8741,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",16.95,RF,,,,2.0,,200.0,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9748,0.8088,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",19.89,RF,,,10.0,5.0,,200.0,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.9316,0.812,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",17.12,RF,,,,2.0,,200.0,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.9748,0.8817,,,,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 100}",22.8,RF,,,10.0,2.0,,100.0,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9856,0.8919,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",17.26,RF,,,,2.0,,200.0,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.9712,0.8717,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}",14.44,RF,,,,5.0,,100.0,,,

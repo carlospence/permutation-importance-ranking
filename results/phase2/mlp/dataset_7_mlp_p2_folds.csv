@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_7,1,19,3,"F1, F2, F13",0.9969,0.7431,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",27.71,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_7,2,19,2,"F1, F2",0.999,0.7451,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",20.84,MLP,,,,,,,"(64,)",0.01,0.0001
+dataset_7,3,19,4,"F1, F2, F5, F13",0.9937,0.7401,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.001}",28.52,MLP,,,,,,,"(64, 64)",0.001,0.0001
+dataset_7,4,19,3,"F1, F2, F13",0.9948,0.9933,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",25.71,MLP,,,,,,,"(64,)",0.01,0.0001
+dataset_7,5,19,3,"F1, F2, F5",0.9969,0.996,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",23.16,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_7,6,19,3,"F1, F5, F13",0.999,0.7449,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",21.86,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_7,7,19,3,"F1, F5, F13",0.9958,0.7419,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.001}",24.44,MLP,,,,,,,"(128,)",0.001,0.0001
+dataset_7,8,19,3,"F1, F2, F13",0.9896,0.7357,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",23.98,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_7,9,19,4,"F1, F2, F5, F13",0.977,0.7204,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",23.81,MLP,,,,,,,"(64,)",0.01,0.0001
+dataset_7,10,19,4,"F1, F2, F5, F13",0.9958,0.7378,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",28.12,MLP,,,,,,,"(64, 64)",0.01,0.0001

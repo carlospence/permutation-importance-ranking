@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_10,1,265,13,"F32, F51, F59, F68, F92, F105, F108, F164, F192, F226, F227, F236, F249",0.5534,0.0727,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",4.95,SVM,,,,,,,,,
+dataset_10,2,265,12,"F32, F51, F59, F79, F92, F105, F108, F164, F192, F226, F236, F249",0.7575,0.0935,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.46,SVM,,,,,,,,,
+dataset_10,3,265,14,"F15, F17, F32, F51, F92, F105, F108, F164, F185, F192, F226, F227, F236, F249",0.7599,0.1546,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",5.06,SVM,,,,,,,,,
+dataset_10,4,265,17,"F15, F17, F21, F32, F59, F68, F92, F105, F108, F134, F164, F192, F226, F231, F236, F249, F252",0.7563,0.1578,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.69,SVM,,,,,,,,,
+dataset_10,5,265,12,"F32, F51, F92, F105, F108, F164, F178, F192, F226, F231, F236, F249",0.7599,0.1073,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",4.41,SVM,,,,,,,,,
+dataset_10,6,265,13,"F32, F43, F51, F79, F92, F105, F108, F164, F192, F226, F236, F249, F250",0.4718,0.0733,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",5.25,SVM,,,,,,,,,
+dataset_10,7,265,16,"F17, F32, F51, F59, F68, F92, F105, F108, F164, F167, F192, F226, F227, F236, F249, F250",0.7515,0.1131,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",5.04,SVM,,,,,,,,,
+dataset_10,8,265,17,"F21, F32, F51, F68, F92, F105, F108, F164, F167, F185, F192, F196, F226, F230, F236, F249, F255",0.7395,0.122,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.67,SVM,,,,,,,,,
+dataset_10,9,265,12,"F4, F15, F32, F51, F92, F105, F164, F185, F192, F226, F236, F249",0.7827,0.1062,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",5.09,SVM,,,,,,,,,
+dataset_10,10,265,11,"F21, F32, F51, F92, F105, F108, F164, F192, F226, F236, F249",0.8007,0.122,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.35,SVM,,,,,,,,,

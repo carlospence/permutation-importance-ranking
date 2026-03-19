@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.9076,0.6716,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",61.68,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.8631,0.3265,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",40.84,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.8836,0.5207,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",50.05,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.8307,0.2574,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",23.69,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.8956,0.4178,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",46.55,MLP,,,,,,,"(64,)",0.01,0.0001
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9268,0.4855,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",53.59,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.8427,0.2125,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",33.45,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.94,0.6889,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",76.86,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9484,0.7481,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",62.98,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.8439,0.1838,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",30.58,MLP,,,,,,,"(64, 64)",0.01,0.001

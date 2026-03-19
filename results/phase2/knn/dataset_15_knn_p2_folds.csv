@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_15,1,265,7,"F59, F63, F105, F109, F164, F192, F249",0.94,0.6734,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",16.53,KNN,3.0,manhattan,,,,,,,
+dataset_15,2,265,4,"F105, F164, F192, F249",0.9604,0.7206,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",21.09,KNN,3.0,manhattan,,,,,,,
+dataset_15,3,265,11,"F8, F32, F59, F63, F102, F105, F164, F192, F218, F236, F249",0.9532,0.7912,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",17.46,KNN,3.0,manhattan,,,,,,,
+dataset_15,4,265,5,"F63, F105, F164, F192, F249",0.9376,0.6231,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",14.58,KNN,3.0,manhattan,,,,,,,
+dataset_15,5,265,13,"F5, F8, F59, F68, F79, F102, F105, F134, F164, F192, F212, F218, F249",0.9484,0.7095,,,,"{'metric': 'manhattan', 'n_neighbors': 5}",15.13,KNN,5.0,manhattan,,,,,,,
+dataset_15,6,265,10,"F8, F32, F63, F79, F102, F105, F149, F164, F192, F249",0.9556,0.7142,,,,"{'metric': 'euclidean', 'n_neighbors': 3}",14.85,KNN,3.0,euclidean,,,,,,,
+dataset_15,7,265,6,"F59, F79, F105, F164, F192, F249",0.934,0.6719,,,,"{'metric': 'euclidean', 'n_neighbors': 7}",14.59,KNN,7.0,euclidean,,,,,,,
+dataset_15,8,265,8,"F59, F102, F105, F164, F192, F218, F236, F249",0.946,0.6334,,,,"{'metric': 'euclidean', 'n_neighbors': 3}",15.51,KNN,3.0,euclidean,,,,,,,
+dataset_15,9,265,7,"F32, F59, F105, F157, F192, F212, F249",0.9556,0.6657,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",14.68,KNN,3.0,manhattan,,,,,,,
+dataset_15,10,265,6,"F63, F79, F105, F164, F192, F249",0.9592,0.8189,,,,"{'metric': 'euclidean', 'n_neighbors': 3}",14.49,KNN,3.0,euclidean,,,,,,,

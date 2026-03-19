@@ -1,0 +1,6 @@
+Dataset,Classifier,Accuracy Mean,Accuracy Std,F1 Mean,F1 Std,Accuracy Mean ± Std,F1 Mean ± Std,Avg_Features_Before,Avg_Features_After,Total_Time_Seconds
+dataset_8,SVM,0.975,0.0062,0.771,0.1074,0.9751 ± 0.0062,0.7711 ± 0.1074,19,3.2,930.09
+dataset_8,KNN,0.9982,0.0013,0.8413,0.132,0.9982 ± 0.0013,0.8413 ± 0.1320,19,3.2,930.1
+dataset_8,DT,1.0,0.0,1.0,0.0,1.0000 ± 0.0000,1.0000 ± 0.0000,19,3.2,930.11
+dataset_8,RF,1.0,0.0,1.0,0.0,1.0000 ± 0.0000,1.0000 ± 0.0000,19,3.2,930.12
+dataset_8,MLP,0.9939,0.0065,0.7898,0.1082,0.9939 ± 0.0065,0.7898 ± 0.1082,19,3.2,930.13

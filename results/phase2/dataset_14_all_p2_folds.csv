@@ -1,0 +1,51 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.6519,0.1948,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",6.78,SVM,,,,,,,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.4694,0.0941,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",5.15,SVM,,,,,,,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.6495,0.217,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",5.16,SVM,,,,,,,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.5006,0.1043,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",5.46,SVM,,,,,,,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.6771,0.1579,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.89,SVM,,,,,,,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.7011,0.2408,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",6.62,SVM,,,,,,,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.2641,0.0469,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",5.45,SVM,,,,,,,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.6771,0.2123,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",5.48,SVM,,,,,,,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.5618,0.1552,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",4.97,SVM,,,,,,,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.5282,0.0782,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",5.48,SVM,,,,,,,,,
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.9256,0.748,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",36.95,KNN,3.0,manhattan,,,,,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.8956,0.6608,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",15.44,KNN,3.0,manhattan,,,,,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.928,0.7857,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",16.16,KNN,3.0,manhattan,,,,,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.9304,0.7514,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",17.85,KNN,3.0,manhattan,,,,,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.9172,0.6237,,,,"{'metric': 'manhattan', 'n_neighbors': 5}",23.39,KNN,5.0,manhattan,,,,,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.946,0.7739,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",25.78,KNN,3.0,manhattan,,,,,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.8896,0.6586,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",15.09,KNN,3.0,manhattan,,,,,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.9412,0.8058,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",17.3,KNN,3.0,manhattan,,,,,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9304,0.7886,,,,"{'metric': 'manhattan', 'n_neighbors': 3}",22.57,KNN,3.0,manhattan,,,,,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.9016,0.6411,,,,"{'metric': 'manhattan', 'n_neighbors': 9}",15.55,KNN,9.0,manhattan,,,,,,,
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.9724,0.8353,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.7,DT,,,,2.0,gini,,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.9196,0.6566,,,,"{'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}",1.48,DT,,,10.0,2.0,entropy,,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.9724,0.8831,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}",1.37,DT,,,,5.0,entropy,,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.9652,0.7891,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.42,DT,,,,2.0,entropy,,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.9748,0.873,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.35,DT,,,,2.0,gini,,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9772,0.8362,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}",1.87,DT,,,,5.0,entropy,,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.9076,0.7405,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.52,DT,,,,2.0,entropy,,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.9772,0.845,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.89,DT,,,,2.0,gini,,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9748,0.844,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}",1.6,DT,,,,5.0,gini,,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.9616,0.793,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.14,DT,,,,2.0,entropy,,,,
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.988,0.9065,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",15.32,RF,,,,2.0,,100.0,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.9316,0.7392,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}",16.34,RF,,,,5.0,,100.0,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.9772,0.8901,,,,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 200}",16.06,RF,,,10.0,2.0,,200.0,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.9772,0.8649,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}",15.91,RF,,,,5.0,,200.0,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.9772,0.8741,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",16.95,RF,,,,2.0,,200.0,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9748,0.8088,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",19.89,RF,,,10.0,5.0,,200.0,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.9316,0.812,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",17.12,RF,,,,2.0,,200.0,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.9748,0.8817,,,,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 100}",22.8,RF,,,10.0,2.0,,100.0,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9856,0.8919,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",17.26,RF,,,,2.0,,200.0,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.9712,0.8717,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}",14.44,RF,,,,5.0,,100.0,,,
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.9076,0.6716,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",61.68,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.8631,0.3265,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",40.84,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.8836,0.5207,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",50.05,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.8307,0.2574,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (128,), 'learning_rate_init': 0.01}",23.69,MLP,,,,,,,"(128,)",0.01,0.001
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.8956,0.4178,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64,), 'learning_rate_init': 0.01}",46.55,MLP,,,,,,,"(64,)",0.01,0.0001
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9268,0.4855,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",53.59,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.8427,0.2125,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",33.45,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.94,0.6889,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",76.86,MLP,,,,,,,"(64, 64)",0.01,0.001
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9484,0.7481,,,,"{'alpha': 0.0001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",62.98,MLP,,,,,,,"(64, 64)",0.01,0.0001
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.8439,0.1838,,,,"{'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate_init': 0.01}",30.58,MLP,,,,,,,"(64, 64)",0.01,0.001

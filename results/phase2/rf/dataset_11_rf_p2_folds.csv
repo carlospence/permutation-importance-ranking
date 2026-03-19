@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_11,1,265,8,"F32, F105, F135, F155, F164, F192, F236, F249",0.8679,0.2306,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",15.18,RF,,,10.0,5.0,,200.0,,,
+dataset_11,2,265,10,"F32, F68, F102, F105, F123, F164, F192, F196, F236, F249",0.8559,0.2221,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",16.89,RF,,,,2.0,,200.0,,,
+dataset_11,3,265,8,"F8, F32, F105, F164, F192, F231, F236, F249",0.8511,0.1886,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}",13.59,RF,,,10.0,5.0,,100.0,,,
+dataset_11,4,265,11,"F32, F68, F92, F105, F111, F155, F164, F178, F192, F236, F249",0.8631,0.216,,,,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 100}",15.69,RF,,,,5.0,,100.0,,,
+dataset_11,5,265,8,"F32, F105, F126, F156, F164, F192, F236, F249",0.8535,0.1701,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",14.78,RF,,,10.0,5.0,,200.0,,,
+dataset_11,6,265,10,"F25, F32, F105, F111, F164, F178, F192, F196, F236, F249",0.8667,0.2427,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",17.24,RF,,,,2.0,,200.0,,,
+dataset_11,7,265,11,"F32, F68, F102, F105, F123, F164, F178, F192, F196, F236, F249",0.8655,0.2085,,,,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 100}",15.57,RF,,,10.0,2.0,,100.0,,,
+dataset_11,8,265,9,"F32, F92, F102, F105, F164, F192, F196, F236, F249",0.8679,0.203,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",15.83,RF,,,10.0,5.0,,200.0,,,
+dataset_11,9,265,9,"F32, F68, F102, F105, F138, F164, F192, F236, F249",0.8595,0.2035,,,,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 100}",14.86,RF,,,10.0,5.0,,100.0,,,
+dataset_11,10,265,9,"F32, F68, F105, F111, F164, F192, F196, F236, F249",0.8427,0.1421,,,,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",16.12,RF,,,,2.0,,200.0,,,

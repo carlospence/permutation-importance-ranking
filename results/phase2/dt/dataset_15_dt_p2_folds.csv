@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_15,1,265,7,"F59, F63, F105, F109, F164, F192, F249",0.9532,0.6416,,,,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",1.07,DT,,,10.0,2.0,gini,,,,
+dataset_15,2,265,4,"F105, F164, F192, F249",0.9604,0.8103,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.12,DT,,,,2.0,gini,,,,
+dataset_15,3,265,11,"F8, F32, F59, F63, F102, F105, F164, F192, F218, F236, F249",0.9724,0.8236,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.66,DT,,,,2.0,gini,,,,
+dataset_15,4,265,5,"F63, F105, F164, F192, F249",0.964,0.7701,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",0.87,DT,,,,2.0,gini,,,,
+dataset_15,5,265,13,"F5, F8, F59, F68, F79, F102, F105, F134, F164, F192, F212, F218, F249",0.9724,0.798,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.22,DT,,,,2.0,entropy,,,,
+dataset_15,6,265,10,"F8, F32, F63, F79, F102, F105, F149, F164, F192, F249",0.9796,0.8155,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.05,DT,,,,2.0,entropy,,,,
+dataset_15,7,265,6,"F59, F79, F105, F164, F192, F249",0.9616,0.7704,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",0.89,DT,,,,2.0,gini,,,,
+dataset_15,8,265,8,"F59, F102, F105, F164, F192, F218, F236, F249",0.964,0.7575,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.09,DT,,,,2.0,entropy,,,,
+dataset_15,9,265,7,"F32, F59, F105, F157, F192, F212, F249",0.9508,0.6683,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}",0.87,DT,,,,5.0,gini,,,,
+dataset_15,10,265,6,"F63, F79, F105, F164, F192, F249",0.9652,0.7968,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",0.89,DT,,,,2.0,entropy,,,,

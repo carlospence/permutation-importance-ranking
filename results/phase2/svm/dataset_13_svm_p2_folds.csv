@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_13,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.6519,0.1948,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",6.56,SVM,,,,,,,,,
+dataset_13,2,265,6,"F56, F105, F164, F192, F236, F249",0.4694,0.0941,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",4.79,SVM,,,,,,,,,
+dataset_13,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.6495,0.217,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",5.13,SVM,,,,,,,,,
+dataset_13,4,265,6,"F63, F105, F164, F192, F236, F249",0.5006,0.1043,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",9.66,SVM,,,,,,,,,
+dataset_13,5,265,6,"F59, F105, F164, F192, F236, F249",0.6771,0.1579,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",7.61,SVM,,,,,,,,,
+dataset_13,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.7011,0.2408,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",5.68,SVM,,,,,,,,,
+dataset_13,7,265,6,"F32, F56, F105, F120, F164, F192",0.2641,0.0469,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",9.78,SVM,,,,,,,,,
+dataset_13,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.6771,0.2123,linear,1.0,N/A,"{'kernel': 'linear', 'C': 1, 'gamma': 'N/A'}",9.19,SVM,,,,,,,,,
+dataset_13,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.5618,0.1552,linear,0.1,N/A,"{'kernel': 'linear', 'C': 0.1, 'gamma': 'N/A'}",5.5,SVM,,,,,,,,,
+dataset_13,10,265,6,"F59, F105, F164, F192, F236, F249",0.5282,0.0782,linear,10.0,N/A,"{'kernel': 'linear', 'C': 10, 'gamma': 'N/A'}",5.84,SVM,,,,,,,,,

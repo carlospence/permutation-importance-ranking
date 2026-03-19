@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_14,1,265,17,"F8, F32, F59, F63, F68, F79, F93, F103, F105, F121, F164, F192, F193, F212, F216, F236, F249",0.9724,0.8353,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.7,DT,,,,2.0,gini,,,,
+dataset_14,2,265,6,"F56, F105, F164, F192, F236, F249",0.9196,0.6566,,,,"{'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}",1.48,DT,,,10.0,2.0,entropy,,,,
+dataset_14,3,265,9,"F21, F63, F105, F134, F164, F192, F236, F249, F252",0.9724,0.8831,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}",1.37,DT,,,,5.0,entropy,,,,
+dataset_14,4,265,6,"F63, F105, F164, F192, F236, F249",0.9652,0.7891,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.42,DT,,,,2.0,entropy,,,,
+dataset_14,5,265,6,"F59, F105, F164, F192, F236, F249",0.9748,0.873,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.35,DT,,,,2.0,gini,,,,
+dataset_14,6,265,13,"F8, F32, F59, F63, F68, F102, F103, F105, F164, F192, F213, F236, F249",0.9772,0.8362,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 5}",1.87,DT,,,,5.0,entropy,,,,
+dataset_14,7,265,6,"F32, F56, F105, F120, F164, F192",0.9076,0.7405,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.52,DT,,,,2.0,entropy,,,,
+dataset_14,8,265,9,"F24, F25, F59, F105, F114, F164, F192, F236, F249",0.9772,0.845,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.89,DT,,,,2.0,gini,,,,
+dataset_14,9,265,12,"F8, F32, F59, F63, F79, F102, F105, F164, F192, F218, F236, F249",0.9748,0.844,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}",1.6,DT,,,,5.0,gini,,,,
+dataset_14,10,265,6,"F59, F105, F164, F192, F236, F249",0.9616,0.793,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.14,DT,,,,2.0,entropy,,,,

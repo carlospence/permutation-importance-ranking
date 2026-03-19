@@ -1,0 +1,11 @@
+Dataset,Fold,N_Features_Before,N_Features_After,Selected_Features,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds,Classifier,Best_K,Best_Metric,Best_Max_Depth,Best_Min_Split,Best_Criterion,Best_N_Estimators,Best_Hidden_Layers,Best_Learning_Rate,Best_Alpha
+dataset_10,1,265,13,"F32, F51, F59, F68, F92, F105, F108, F164, F192, F226, F227, F236, F249",0.946,0.522,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",2.32,DT,,,,2.0,gini,,,,
+dataset_10,2,265,12,"F32, F51, F59, F79, F92, F105, F108, F164, F192, F226, F236, F249",0.9268,0.3606,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.62,DT,,,,2.0,entropy,,,,
+dataset_10,3,265,14,"F15, F17, F32, F51, F92, F105, F108, F164, F185, F192, F226, F227, F236, F249",0.9316,0.4882,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.57,DT,,,,2.0,gini,,,,
+dataset_10,4,265,17,"F15, F17, F21, F32, F59, F68, F92, F105, F108, F134, F164, F192, F226, F231, F236, F249, F252",0.94,0.4387,,,,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",1.98,DT,,,10.0,2.0,gini,,,,
+dataset_10,5,265,12,"F32, F51, F92, F105, F108, F164, F178, F192, F226, F231, F236, F249",0.9268,0.4303,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 10}",1.7,DT,,,,10.0,gini,,,,
+dataset_10,6,265,13,"F32, F43, F51, F79, F92, F105, F108, F164, F192, F226, F236, F249, F250",0.9304,0.4445,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.63,DT,,,,2.0,gini,,,,
+dataset_10,7,265,16,"F17, F32, F51, F59, F68, F92, F105, F108, F164, F167, F192, F226, F227, F236, F249, F250",0.9388,0.4218,,,,"{'criterion': 'gini', 'max_depth': None, 'min_samples_split': 2}",1.95,DT,,,,2.0,gini,,,,
+dataset_10,8,265,17,"F21, F32, F51, F68, F92, F105, F108, F164, F167, F185, F192, F196, F226, F230, F236, F249, F255",0.9352,0.4714,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",2.15,DT,,,,2.0,entropy,,,,
+dataset_10,9,265,12,"F4, F15, F32, F51, F92, F105, F164, F185, F192, F226, F236, F249",0.9244,0.3952,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.64,DT,,,,2.0,entropy,,,,
+dataset_10,10,265,11,"F21, F32, F51, F92, F105, F108, F164, F192, F226, F236, F249",0.9352,0.4552,,,,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}",1.79,DT,,,,2.0,entropy,,,,
