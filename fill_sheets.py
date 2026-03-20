@@ -18,7 +18,7 @@ from openpyxl.styles import PatternFill, Font, Alignment
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 
-WORKBOOK     = "CS6735_PROJECT.xlsx"        # rename your workbook to this
+WORKBOOK     = "CS6735_PROJECT_COMPLETE.xlsx"        # rename your workbook to this
 PHASE1_SHEET = "Before FS-DR"
 PHASE2_SHEET = "After FS-DR"
 PHASE1_DIR   = "results/phase1"
@@ -27,7 +27,7 @@ N_DATASETS   = 16
 N_FOLDS      = 10
 TARGET_COL   = "Label"
 
-FS_PARAMS = "RF permutation importance | n_repeats=10 | threshold=mean importance"
+# FS_PARAMS is now dynamic per fold — see fill_phase2()
 
 # Phase 1 column indices (1-based)
 P1_COLS = {
@@ -195,7 +195,7 @@ def fill_phase2(ws):
 
                 write_cell(ws, row, cols["acc"], acc)
                 write_cell(ws, row, cols["f1"],  f1)
-                write_cell(ws, row, cols["par"], FS_PARAMS)
+                write_cell(ws, row, cols["par"], str(fold_data["Parameters"]))
 
                 all_values[clf]["acc"].append(acc)
                 all_values[clf]["f1"].append(f1)
