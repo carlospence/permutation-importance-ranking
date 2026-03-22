@@ -1,0 +1,11 @@
+Classifier,Phase,Best Hyperparameters
+SVM,Before FS/DR,"kernel=linear, C=10.0"
+SVM,After FS/DR,"kernel=rbf, C=10.0, gamma=scale"
+kNN,Before FS/DR,"k=3, metric=manhattan"
+kNN,After FS/DR,"k=3.0, metric=manhattan"
+DT,Before FS/DR,"max_depth=10.0, min_samples_split=2, criterion=gini"
+DT,After FS/DR,"max_depth=10.0, min_samples_split=2.0, criterion=gini"
+RF,Before FS/DR,"n_estimators=100, max_depth=10.0, min_samples_split=2"
+RF,After FS/DR,"n_estimators=100.0, max_depth=10.0, min_samples_split=N/A"
+MLP,Before FS/DR,"hidden_layers=(64, 64), lr=0.01, alpha=0.001"
+MLP,After FS/DR,"hidden_layers=(64, 64), lr=0.01, alpha=0.0001"
