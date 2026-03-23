@@ -20,7 +20,7 @@ from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
 
 DATA_DIR = "data"
-HYPERPARAMETER_TABLE = "hyperparameter_table.csv"
+HYPERPARAMETER_TABLE = "report_figures/hyperparameter_table.csv"
 RESULTS_DIR = os.path.join("results", "final_test", "phase1")
 TARGET_COL = "Label"
 RANDOM_STATE = 42

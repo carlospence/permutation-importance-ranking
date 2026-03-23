@@ -1,0 +1,9 @@
+Dataset,Phase,Classifier,Test_Accuracy,Test_F1_Macro,Hyperparameters,Train_Rows,Test_Rows,Num_Features,Num_Classes,Confusion_Matrix_File,Time_Seconds
+dataset_1,Before FS/DR,SVM,0.9778,0.9397,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_1_svm_confusion_matrix.csv,0.49
+dataset_2,Before FS/DR,SVM,0.8839,0.3865,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_2_svm_confusion_matrix.csv,0.36
+dataset_3,Before FS/DR,SVM,0.8316,0.2762,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_3_svm_confusion_matrix.csv,0.33
+dataset_4,Before FS/DR,SVM,0.8144,0.2263,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_4_svm_confusion_matrix.csv,0.43
+dataset_5,Before FS/DR,SVM,0.9784,0.8503,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_5_svm_confusion_matrix.csv,1.46
+dataset_6,Before FS/DR,SVM,0.9412,0.6876,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_6_svm_confusion_matrix.csv,1.42
+dataset_7,Before FS/DR,SVM,0.8369,0.4299,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_7_svm_confusion_matrix.csv,0.43
+dataset_8,Before FS/DR,SVM,0.9052,0.4498,"{""C"": 10, ""kernel"": ""linear""}",9583,3195,19,4,results\final_test\phase1\dataset_8_svm_confusion_matrix.csv,0.42
