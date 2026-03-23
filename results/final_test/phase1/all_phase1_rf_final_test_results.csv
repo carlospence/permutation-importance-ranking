@@ -1,0 +1,17 @@
+Dataset,Phase,Classifier,Test_Accuracy,Test_F1_Macro,Hyperparameters,Train_Rows,Test_Rows,Num_Features,Num_Classes,Confusion_Matrix_File,Time_Seconds
+dataset_1,Before FS/DR,RF,0.9944,0.9577,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_1_rf_confusion_matrix.csv,1.31
+dataset_2,Before FS/DR,RF,0.9549,0.476,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_2_rf_confusion_matrix.csv,1.38
+dataset_3,Before FS/DR,RF,0.8567,0.3728,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_3_rf_confusion_matrix.csv,1.43
+dataset_4,Before FS/DR,RF,0.7981,0.2475,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_4_rf_confusion_matrix.csv,1.38
+dataset_5,Before FS/DR,RF,0.995,0.9439,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_5_rf_confusion_matrix.csv,1.32
+dataset_6,Before FS/DR,RF,0.9524,0.7074,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_6_rf_confusion_matrix.csv,1.31
+dataset_7,Before FS/DR,RF,0.9831,0.8721,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_7_rf_confusion_matrix.csv,1.22
+dataset_8,Before FS/DR,RF,0.9621,0.4853,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",9583,3195,19,4,results\final_test\phase1\dataset_8_rf_confusion_matrix.csv,1.26
+dataset_9,Before FS/DR,RF,0.9831,0.9026,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_9_rf_confusion_matrix.csv,2.11
+dataset_10,Before FS/DR,RF,0.9503,0.5194,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_10_rf_confusion_matrix.csv,2.14
+dataset_11,Before FS/DR,RF,0.8596,0.1552,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_11_rf_confusion_matrix.csv,2.23
+dataset_12,Before FS/DR,RF,0.8109,0.06,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_12_rf_confusion_matrix.csv,2.24
+dataset_13,Before FS/DR,RF,0.9813,0.8684,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_13_rf_confusion_matrix.csv,2.1
+dataset_14,Before FS/DR,RF,0.978,0.8502,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_14_rf_confusion_matrix.csv,2.08
+dataset_15,Before FS/DR,RF,0.9816,0.8499,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_15_rf_confusion_matrix.csv,2.03
+dataset_16,Before FS/DR,RF,0.8704,0.6205,"{""max_depth"": 10, ""min_samples_split"": 2, ""n_estimators"": 100}",8330,2777,265,16,results\final_test\phase1\dataset_16_rf_confusion_matrix.csv,2.13

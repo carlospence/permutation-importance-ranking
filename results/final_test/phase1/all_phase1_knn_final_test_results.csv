@@ -1,0 +1,17 @@
+Dataset,Phase,Classifier,Test_Accuracy,Test_F1_Macro,Hyperparameters,Train_Rows,Test_Rows,Num_Features,Num_Classes,Confusion_Matrix_File,Time_Seconds
+dataset_1,Before FS/DR,kNN,0.9884,0.8347,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_1_knn_confusion_matrix.csv,7.25
+dataset_2,Before FS/DR,kNN,0.9459,0.4691,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_2_knn_confusion_matrix.csv,1.34
+dataset_3,Before FS/DR,kNN,0.8491,0.3655,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_3_knn_confusion_matrix.csv,3.2
+dataset_4,Before FS/DR,kNN,0.7941,0.2476,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_4_knn_confusion_matrix.csv,2.57
+dataset_5,Before FS/DR,kNN,0.9875,0.8327,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_5_knn_confusion_matrix.csv,1.17
+dataset_6,Before FS/DR,kNN,0.9446,0.692,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_6_knn_confusion_matrix.csv,0.97
+dataset_7,Before FS/DR,kNN,0.9756,0.8343,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_7_knn_confusion_matrix.csv,0.89
+dataset_8,Before FS/DR,kNN,0.8836,0.535,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",9583,3195,19,4,results\final_test\phase1\dataset_8_knn_confusion_matrix.csv,1.0
+dataset_9,Before FS/DR,kNN,0.9636,0.8795,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_9_knn_confusion_matrix.csv,12.97
+dataset_10,Before FS/DR,kNN,0.9309,0.4909,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_10_knn_confusion_matrix.csv,9.27
+dataset_11,Before FS/DR,kNN,0.839,0.146,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_11_knn_confusion_matrix.csv,10.17
+dataset_12,Before FS/DR,kNN,0.7893,0.062,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_12_knn_confusion_matrix.csv,10.45
+dataset_13,Before FS/DR,kNN,0.9611,0.8341,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_13_knn_confusion_matrix.csv,11.37
+dataset_14,Before FS/DR,kNN,0.9611,0.8324,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_14_knn_confusion_matrix.csv,10.25
+dataset_15,Before FS/DR,kNN,0.4357,0.5768,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_15_knn_confusion_matrix.csv,9.02
+dataset_16,Before FS/DR,kNN,0.1167,0.2092,"{""metric"": ""manhattan"", ""n_neighbors"": 3}",8330,2777,265,16,results\final_test\phase1\dataset_16_knn_confusion_matrix.csv,9.03
