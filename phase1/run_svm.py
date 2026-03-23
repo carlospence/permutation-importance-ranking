@@ -243,8 +243,7 @@ def get_dataset_folders(data_dir: str) -> list[str]:
     folders = [f for f in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, f))]
     def sort_key(v):
         return (0, int(v)) if v.isdigit() else (1, v.lower())
-    folders = sorted(folders, key=sort_key)
-    return [f for f in folders if not f.isdigit() or int(f) <= 8]
+    return sorted(folders, key=sort_key)
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────

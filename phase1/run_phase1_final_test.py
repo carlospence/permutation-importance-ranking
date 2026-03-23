@@ -223,11 +223,7 @@ def get_dataset_folders(data_dir: str, classifier: str) -> List[str]:
     def sort_key(value: str) -> Tuple[int, Any]:
         return (0, int(value)) if value.isdigit() else (1, value.lower())
 
-    folders = sorted(folders, key=sort_key)
-
-    if classifier == "SVM":
-        return [f for f in folders if not f.isdigit() or int(f) <= 8]
-    return folders
+    return sorted(folders, key=sort_key)
 
 
 def evaluate_single_dataset(classifier: str, params: Dict[str, Any], folder: str) -> Dict[str, Any]:
