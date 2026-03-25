@@ -12,3 +12,8 @@ __pycache__/
 
 # OS files
 .DS_Store
+
+# Interactive Result
+results/interactive/phase1/
+results/interactive/phase2/
+results101/
