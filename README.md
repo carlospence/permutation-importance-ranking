@@ -170,13 +170,14 @@ These scripts produce:
 - saved models in `models/phase1/` and `models/phase2/`
 - selected-feature JSON files for phase 2
 
-**run_phase{1or2}_final_test_with_save.py** and **run_phase{1or2}_final_test.py** are **final test/evaluation script** for Phase 1 and 2. It loads the best hyperparameters discovered during Phase 1 or 2 training and evaluates each classifier on the actual test sets (separate from the training data used for hyperparameter tuning). The version **"With Save"**** saves the model generated so that it can easily be loaded for predictions without retraining while the version without ***"With Save"***** does not save the model.
+**run_phase{1or2}_final_test_with_save.py** and **run_phase{1or2}_final_test.py** are **final test/evaluation script** for Phase 1 and 2. It loads the best hyperparameters discovered during Phase 1 or 2 training and evaluates each classifier on the actual test sets (separate from the training data used for hyperparameter tuning). The version **"With Save"** saves the model generated so that it can easily be loaded for predictions without retraining while the version without ***"With Save"*** does not save the model.
 
 ## Interactive Model Loader and Testing Utility
 
-This is an **interactive model loader & testing utility** for a machine learning project. It allows you to load pre-trained models and test them on either existing datasets or custom data. 
+This is an **interactive model loader & testing utility** for a machine learning project. It allows you to load pre-trained models and test them on either existing datasets or custom data.
 
 **Main Workflow (`main()`):**
+
 1. Select phase (1 or 2)
 2. Display available trained models
 3. Choose a dataset and classifier
@@ -187,6 +188,7 @@ This is an **interactive model loader & testing utility** for a machine learning
 8. Loop to test another model or exit
 
 ### Key Features:
+
 - Feature alignment checks (warns if features don't match)
 - Multiple confusion matrix formats
 - Probability estimates when available
@@ -196,25 +198,30 @@ This is an **interactive model loader & testing utility** for a machine learning
 The file can be executed in several ways:
 
 ## **1. From project root (recommended)**
+
 ```powershell
 python utils/interactive_model_loader_tester.py
 ```
 
 ## **2. From within the utils directory**
+
 ```powershell
 cd utils
 python interactive_model_loader_tester.py
 ```
 
 ## **3. Using Python module execution**
+
 ```powershell
 python -m utils.interactive_model_loader_tester
 ```
 
 ## **4. On Unix/Linux with shebang**
+
 ```bash
 ./utils/interactive_model_loader_tester.py
 ```
+
 (Requires execute permissions: `chmod +x utils/interactive_model_loader_tester.py`)
 
 ---
@@ -232,5 +239,6 @@ The file has a `if __name__ == "__main__":` block that calls the `main()` functi
 7. Test another model or exit
 
 **Requirements before running:**
+
 - Pre-trained models must exist in phase1 and phase2 directories
 - Test data available in `data/<N>/test.csv` format or a custom CSV file
