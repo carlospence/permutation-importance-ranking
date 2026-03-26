@@ -1,11 +1,11 @@
 Dataset,Fold,Accuracy,F1,Best_Max_Depth,Best_Min_Split,Best_Criterion,Parameters,Fold_Time_Seconds
-dataset_7,1,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.39
-dataset_7,2,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.36
-dataset_7,3,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.48
-dataset_7,4,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.38
-dataset_7,5,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.41
-dataset_7,6,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.35
-dataset_7,7,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.4
-dataset_7,8,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.41
-dataset_7,9,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.43
-dataset_7,10,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.47
+dataset_7,1,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.34
+dataset_7,2,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.32
+dataset_7,3,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.35
+dataset_7,4,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.35
+dataset_7,5,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.33
+dataset_7,6,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.33
+dataset_7,7,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.33
+dataset_7,8,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.33
+dataset_7,9,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.34
+dataset_7,10,1.0,1.0,10,2,gini,"{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}",0.34
