@@ -27,13 +27,20 @@ CLASSIFIERS_TEST = ["SVM", "kNN", "DT", "RF", "MLP"]
 GROUP_ORDER = ["Datasets 1-8", "Datasets 9-16"]
 N_DATASETS = 16
 
-# Bigger figures without losing clarity:
-# - increase FIG_SCALE for larger dimensions
-# - keep SAVE_DPI at 300 or higher for print quality
-# - SAVE_PDF=True also exports vector PDF versions where supported
-FIG_SCALE = 1.35
-SAVE_DPI = 300
+# Make everything very large.
+FIG_SCALE = 2.4
+SAVE_DPI = 400
 SAVE_PDF = True
+
+plt.rcParams.update({
+    "font.size": 14 * FIG_SCALE / 1.6,
+    "axes.titlesize": 15 * FIG_SCALE / 1.6,
+    "axes.labelsize": 13 * FIG_SCALE / 1.6,
+    "xtick.labelsize": 12 * FIG_SCALE / 1.6,
+    "ytick.labelsize": 12 * FIG_SCALE / 1.6,
+    "legend.fontsize": 12 * FIG_SCALE / 1.6,
+    "figure.titlesize": 17 * FIG_SCALE / 1.6,
+})
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(TEST_OUTPUT_DIR, exist_ok=True)
@@ -147,11 +154,11 @@ def figure_phase_comparison() -> None:
         "Datasets 9-16 (16 classes, severe imbalance)": range(9, 17),
     }
 
-    fig, axes = plt.subplots(1, 2, figsize=scaled_size(16, 6))
+    fig, axes = plt.subplots(1, 2, figsize=scaled_size(20, 8))
 
     colors = {"Before FS/DR": "#4472C4", "After FS/DR": "#ED7D31"}
     x = np.arange(len(CLASSIFIERS_SUMMARY))
-    width = 0.35
+    width = 0.34
 
     for ax, (group_title, ds_range) in zip(axes, groups.items()):
         p1_means, p2_means = [], []
@@ -179,9 +186,9 @@ def figure_phase_comparison() -> None:
             yerr=p1_stds,
             label="Before FS/DR",
             color=colors["Before FS/DR"],
-            capsize=4,
+            capsize=8,
             edgecolor="white",
-            linewidth=0.5,
+            linewidth=0.8,
         )
         bars2 = ax.bar(
             x + width / 2,
@@ -190,21 +197,21 @@ def figure_phase_comparison() -> None:
             yerr=p2_stds,
             label="After FS/DR",
             color=colors["After FS/DR"],
-            capsize=4,
+            capsize=8,
             edgecolor="white",
-            linewidth=0.5,
+            linewidth=0.8,
         )
 
-        ax.set_title(group_title, fontsize=12, fontweight="bold", pad=8)
+        ax.set_title(group_title, fontweight="bold", pad=12)
         ax.set_xticks(x)
-        ax.set_xticklabels(CLASSIFIERS_SUMMARY, fontsize=11)
-        ax.set_ylabel("Mean F1 Score", fontsize=11)
+        ax.set_xticklabels(CLASSIFIERS_SUMMARY)
+        ax.set_ylabel("Mean F1 Score")
         ax.set_ylim(0, 1.1)
         ax.yaxis.set_major_formatter(ticker.FormatStrFormatter("%.2f"))
-        ax.legend(fontsize=10)
+        ax.legend()
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
-        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.6)
+        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
 
         for bar_group in (bars1, bars2):
             for rect in bar_group:
@@ -212,19 +219,19 @@ def figure_phase_comparison() -> None:
                 ax.annotate(
                     f"{height:.2f}",
                     xy=(rect.get_x() + rect.get_width() / 2, height),
-                    xytext=(0, 3),
+                    xytext=(0, 8),
                     textcoords="offset points",
                     ha="center",
-                    fontsize=8,
+                    fontsize=11,
+                    fontweight="bold",
                 )
 
     fig.suptitle(
         "Phase 1 vs Phase 2 F1 Score by Classifier and Dataset Group",
-        fontsize=14,
         fontweight="bold",
         y=1.02,
     )
-    fig.tight_layout()
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(OUTPUT_DIR, "phase_comparison.png"))
 
 
@@ -245,7 +252,7 @@ def figure_best_classifier() -> None:
         clf_means.append(np.mean(all_f1) if all_f1 else 0)
         clf_stds.append(np.std(all_f1, ddof=1) if len(all_f1) > 1 else 0)
 
-    fig, ax = plt.subplots(figsize=scaled_size(8, 5))
+    fig, ax = plt.subplots(figsize=scaled_size(10, 7))
     colors = ["#4472C4", "#ED7D31", "#A9D18E", "#FF0000", "#7030A0"]
 
     bars = ax.bar(
@@ -253,42 +260,40 @@ def figure_best_classifier() -> None:
         clf_means,
         yerr=clf_stds,
         color=colors,
-        capsize=5,
+        capsize=8,
         edgecolor="white",
-        linewidth=0.5,
+        linewidth=0.8,
     )
 
-    ax.set_ylabel("Mean F1 Score (across all 16 datasets)", fontsize=11)
+    ax.set_ylabel("Mean F1 Score (across all 16 datasets)")
     ax.set_ylim(0, 1.05)
     ax.yaxis.set_major_formatter(ticker.FormatStrFormatter("%.2f"))
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.6)
-    ax.tick_params(axis="x", labelsize=11)
+    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
 
     for bar, mean in zip(bars, clf_means):
         ax.annotate(
             f"{mean:.3f}",
             xy=(bar.get_x() + bar.get_width() / 2, mean),
-            xytext=(0, 4),
+            xytext=(0, 8),
             textcoords="offset points",
             ha="center",
-            fontsize=9,
+            fontsize=12,
             fontweight="bold",
         )
 
     best_idx = int(np.argmax(clf_means))
     bars[best_idx].set_edgecolor("gold")
-    bars[best_idx].set_linewidth(2.5)
+    bars[best_idx].set_linewidth(3.0)
 
     ax.set_title(
         "Average F1 Score per Classifier - Phase 1 (Baseline)",
-        fontsize=13,
         fontweight="bold",
-        pad=10,
+        pad=12,
     )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(OUTPUT_DIR, "best_classifier.png"))
 
 
@@ -318,9 +323,9 @@ def figure_feature_reduction() -> None:
         features_after.append(after)
 
     x = np.arange(len(datasets))
-    width = 0.35
+    width = 0.34
 
-    fig, ax = plt.subplots(figsize=scaled_size(16, 6))
+    fig, ax = plt.subplots(figsize=scaled_size(24, 10))
 
     bars1 = ax.bar(
         x - width / 2,
@@ -329,7 +334,7 @@ def figure_feature_reduction() -> None:
         label="Before FS/DR",
         color="#4472C4",
         edgecolor="white",
-        linewidth=0.5,
+        linewidth=0.8,
     )
     bars2 = ax.bar(
         x + width / 2,
@@ -338,35 +343,35 @@ def figure_feature_reduction() -> None:
         label="After FS/DR",
         color="#ED7D31",
         edgecolor="white",
-        linewidth=0.5,
+        linewidth=0.8,
     )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(datasets, rotation=45, ha="right", fontsize=10)
-    ax.set_ylabel("Number of Features", fontsize=11)
+    ax.set_xticklabels(datasets, rotation=25, ha="right")
+    ax.set_ylabel("Number of Features")
     ax.set_title(
         "Feature Count Before and After Feature Selection per Dataset",
-        fontsize=13,
         fontweight="bold",
-        pad=10,
+        pad=12,
     )
-    ax.legend(fontsize=10)
+    ax.legend()
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.6)
+    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
 
     for rect in bars2:
         height = rect.get_height()
         ax.annotate(
             f"{int(round(height))}",
             xy=(rect.get_x() + rect.get_width() / 2, height),
-            xytext=(0, 3),
+            xytext=(0, 6),
             textcoords="offset points",
             ha="center",
-            fontsize=8,
+            fontsize=10,
+            fontweight="bold",
         )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(OUTPUT_DIR, "feature_reduction.png"))
 
 
@@ -380,10 +385,10 @@ def figure_std_comparison() -> None:
         "Datasets 9-16 (16 classes, severe imbalance)": range(9, 17),
     }
 
-    fig, axes = plt.subplots(1, 2, figsize=scaled_size(16, 6))
+    fig, axes = plt.subplots(1, 2, figsize=scaled_size(20, 8))
     colors = {"Before FS/DR": "#4472C4", "After FS/DR": "#ED7D31"}
     x = np.arange(len(CLASSIFIERS_SUMMARY))
-    width = 0.35
+    width = 0.34
 
     for ax, (group_title, ds_range) in zip(axes, groups.items()):
         p1_stds, p2_stds = [], []
@@ -408,7 +413,7 @@ def figure_std_comparison() -> None:
             label="Before FS/DR",
             color=colors["Before FS/DR"],
             edgecolor="white",
-            linewidth=0.5,
+            linewidth=0.8,
         )
         bars2 = ax.bar(
             x + width / 2,
@@ -417,17 +422,17 @@ def figure_std_comparison() -> None:
             label="After FS/DR",
             color=colors["After FS/DR"],
             edgecolor="white",
-            linewidth=0.5,
+            linewidth=0.8,
         )
 
-        ax.set_title(group_title, fontsize=12, fontweight="bold", pad=8)
+        ax.set_title(group_title, fontweight="bold", pad=12)
         ax.set_xticks(x)
-        ax.set_xticklabels(CLASSIFIERS_SUMMARY, fontsize=11)
-        ax.set_ylabel("Mean F1 Standard Deviation", fontsize=11)
-        ax.legend(fontsize=10)
+        ax.set_xticklabels(CLASSIFIERS_SUMMARY)
+        ax.set_ylabel("Mean F1 Standard Deviation")
+        ax.legend()
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
-        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.6)
+        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
 
         for bar_group in (bars1, bars2):
             for rect in bar_group:
@@ -435,19 +440,19 @@ def figure_std_comparison() -> None:
                 ax.annotate(
                     f"{height:.3f}",
                     xy=(rect.get_x() + rect.get_width() / 2, height),
-                    xytext=(0, 3),
+                    xytext=(0, 6),
                     textcoords="offset points",
                     ha="center",
-                    fontsize=8,
+                    fontsize=10,
+                    fontweight="bold",
                 )
 
     fig.suptitle(
         "F1 Standard Deviation per Classifier - Phase 1 vs Phase 2",
-        fontsize=14,
         fontweight="bold",
         y=1.02,
     )
-    fig.tight_layout()
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(OUTPUT_DIR, "std_comparison.png"))
 
 
@@ -466,9 +471,9 @@ def figure_combined_average_test_macro_f1(all_df: pd.DataFrame) -> None:
     pivot = summary.pivot(index="Classifier_Norm", columns="Phase_Label", values="Avg_Macro_F1")
     pivot = pivot.reindex(CLASSIFIERS_TEST)
 
-    fig, ax = plt.subplots(figsize=scaled_size(10, 5))
+    fig, ax = plt.subplots(figsize=scaled_size(12, 8))
     x = list(range(len(CLASSIFIERS_TEST)))
-    width = 0.35
+    width = 0.34
 
     if len(phase_order) == 1:
         phase = phase_order[0]
@@ -478,11 +483,12 @@ def figure_combined_average_test_macro_f1(all_df: pd.DataFrame) -> None:
             value = bar.get_height()
             ax.text(
                 bar.get_x() + bar.get_width() / 2,
-                value + 0.015,
+                value + 0.02,
                 f"{value:.3f}",
                 ha="center",
                 va="bottom",
-                fontsize=8,
+                fontsize=11,
+                fontweight="bold",
             )
     else:
         left_phase, right_phase = phase_order[0], phase_order[1]
@@ -497,21 +503,26 @@ def figure_combined_average_test_macro_f1(all_df: pd.DataFrame) -> None:
                 value = bar.get_height()
                 ax.text(
                     bar.get_x() + bar.get_width() / 2,
-                    value + 0.015,
+                    value + 0.02,
                     f"{value:.3f}",
                     ha="center",
                     va="bottom",
-                    fontsize=8,
+                    fontsize=11,
+                    fontweight="bold",
                 )
 
-    ax.set_title("Average Test Macro-F1 per Classifier (Phase 1 vs Phase 2)")
+    ax.set_title("Average Test Macro-F1 per Classifier (Phase 1 vs Phase 2)", pad=12)
     ax.set_xlabel("Classifier")
     ax.set_ylabel("Average Macro-F1")
     ax.set_xticks(x)
     ax.set_xticklabels(CLASSIFIERS_TEST)
-    ax.set_ylim(0, 1.05)
+    ax.set_ylim(0, 1.08)
     ax.legend()
-    fig.tight_layout()
+    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(TEST_OUTPUT_DIR, "combined_average_test_macro_f1.png"))
 
 
@@ -527,7 +538,7 @@ def figure_combined_group_macro_f1(all_df: pd.DataFrame) -> None:
     )
 
     phases = list(summary["Phase_Label"].drop_duplicates())
-    fig, axes = plt.subplots(1, len(phases), figsize=scaled_size(6 * len(phases), 5), squeeze=False)
+    fig, axes = plt.subplots(1, len(phases), figsize=scaled_size(10 * len(phases), 8), squeeze=False)
 
     for idx, phase in enumerate(phases):
         phase_df = summary[summary["Phase_Label"] == phase]
@@ -536,7 +547,7 @@ def figure_combined_group_macro_f1(all_df: pd.DataFrame) -> None:
 
         ax = axes[0][idx]
         x = list(range(len(CLASSIFIERS_TEST)))
-        width = 0.35
+        width = 0.34
 
         vals_1 = pivot[GROUP_ORDER[0]].fillna(0).tolist() if GROUP_ORDER[0] in pivot.columns else [0] * len(CLASSIFIERS_TEST)
         vals_2 = pivot[GROUP_ORDER[1]].fillna(0).tolist() if GROUP_ORDER[1] in pivot.columns else [0] * len(CLASSIFIERS_TEST)
@@ -549,32 +560,36 @@ def figure_combined_group_macro_f1(all_df: pd.DataFrame) -> None:
                 value = bar.get_height()
                 ax.text(
                     bar.get_x() + bar.get_width() / 2,
-                    value + 0.015,
+                    value + 0.02,
                     f"{value:.3f}",
                     ha="center",
                     va="bottom",
-                    fontsize=7,
+                    fontsize=10,
+                    fontweight="bold",
                 )
 
-        ax.set_title(phase)
+        ax.set_title(phase, pad=12, fontweight="bold")
         ax.set_xlabel("Classifier")
         ax.set_ylabel("Average Macro-F1")
         ax.set_xticks(x)
         ax.set_xticklabels(CLASSIFIERS_TEST)
-        ax.set_ylim(0, 1.05)
+        ax.set_ylim(0, 1.08)
         ax.legend()
+        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
 
-    fig.suptitle("Test Macro-F1 by Classifier and Dataset Group")
-    fig.tight_layout()
+    fig.suptitle("Test Macro-F1 by Classifier and Dataset Group", fontweight="bold", y=1.02)
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(TEST_OUTPUT_DIR, "combined_test_macro_f1_by_dataset_group.png"))
 
 
 # ============================================================================
-# Figure 7: Per-dataset test macro-F1 line chart
+# Figure 7A and 7B: Per-dataset test macro-F1 line charts, split by phase
 # ============================================================================
 
-def figure_line_chart(p1_df: pd.DataFrame, p2_df: pd.DataFrame) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=scaled_size(18, 6), sharey=True)
+def figure_line_chart_single_phase(df: pd.DataFrame, phase_title: str, output_name: str) -> None:
+    fig, ax = plt.subplots(figsize=scaled_size(24, 10))
 
     colors = {
         "SVM": "#E74C3C",
@@ -586,102 +601,88 @@ def figure_line_chart(p1_df: pd.DataFrame, p2_df: pd.DataFrame) -> None:
 
     datasets = list(range(1, N_DATASETS + 1))
 
-    for ax, (df, title) in zip(
-        axes,
-        [
-            (p1_df, "Phase 1 - Test Macro-F1 per Dataset"),
-            (p2_df, "Phase 2 - Test Macro-F1 per Dataset"),
-        ],
-    ):
-        for clf in CLASSIFIERS_TEST:
-            clf_df = df[df["Classifier_Norm"] == clf]
-            f1_vals = []
-            for ds in datasets:
-                row = clf_df[clf_df["Dataset_Num"] == ds]
-                f1_vals.append(float(row["Test_F1_Macro"].values[0]) if not row.empty else np.nan)
+    for clf in CLASSIFIERS_TEST:
+        clf_df = df[df["Classifier_Norm"] == clf]
+        f1_vals = []
+        for ds in datasets:
+            row = clf_df[clf_df["Dataset_Num"] == ds]
+            f1_vals.append(float(row["Test_F1_Macro"].values[0]) if not row.empty else np.nan)
 
-            ax.plot(
-                datasets,
-                f1_vals,
-                marker="o",
-                markersize=4,
-                label=clf,
-                color=colors[clf],
-                linewidth=1.8,
-            )
+        ax.plot(
+            datasets,
+            f1_vals,
+            marker="o",
+            markersize=8,
+            label=clf,
+            color=colors[clf],
+            linewidth=2.6,
+        )
 
-        ax.axvline(x=8.5, color="gray", linestyle="--", linewidth=1, alpha=0.6)
-        ax.text(4.5, 0.02, "Datasets 1-8", ha="center", fontsize=9, color="gray")
-        ax.text(12.5, 0.02, "Datasets 9-16", ha="center", fontsize=9, color="gray")
+    ax.axvline(x=8.5, color="gray", linestyle="--", linewidth=1.5, alpha=0.7)
+    ax.text(4.5, 0.03, "Datasets 1-8", ha="center", fontsize=13, color="gray", fontweight="bold")
+    ax.text(12.5, 0.03, "Datasets 9-16", ha="center", fontsize=13, color="gray", fontweight="bold")
 
-        ax.set_title(title, fontsize=12, fontweight="bold", pad=8)
-        ax.set_xlabel("Dataset", fontsize=11)
-        ax.set_ylabel("Test Macro-F1", fontsize=11)
-        ax.set_xticks(datasets)
-        ax.set_ylim(-0.05, 1.05)
-        ax.legend(fontsize=9, loc="upper right")
-        ax.spines["top"].set_visible(False)
-        ax.spines["right"].set_visible(False)
-        ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.6)
+    ax.set_title(phase_title, fontweight="bold", pad=12)
+    ax.set_xlabel("Dataset")
+    ax.set_ylabel("Test Macro-F1")
+    ax.set_xticks(datasets)
+    ax.set_ylim(-0.05, 1.05)
+    ax.legend(loc="best", ncol=5)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.grid(axis="y", linestyle="--", alpha=0.4, linewidth=0.8)
 
-    fig.suptitle("Per-Dataset Test Macro-F1 by Classifier", fontsize=14, fontweight="bold", y=1.02)
-    fig.tight_layout()
-    save_figure(fig, os.path.join(OUTPUT_DIR, "figure_line_chart.png"))
+    fig.tight_layout(pad=3.0)
+    save_figure(fig, os.path.join(OUTPUT_DIR, output_name))
 
 
 # ============================================================================
-# Figure 8: Heatmaps for Phase 1 and Phase 2 test macro-F1
+# Figure 8A and 8B: Heatmaps split by phase
 # ============================================================================
 
-def figure_heatmaps(p1_df: pd.DataFrame, p2_df: pd.DataFrame) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=scaled_size(16, 8))
+def figure_heatmap_single_phase(df: pd.DataFrame, title: str, output_name: str) -> None:
+    fig, ax = plt.subplots(figsize=scaled_size(12, 14))
     ds_labels = [f"Data {i}" for i in range(1, N_DATASETS + 1)]
 
-    for ax, (df, title) in zip(
-        axes,
-        [
-            (p1_df, "Phase 1 - Test Macro-F1"),
-            (p2_df, "Phase 2 - Test Macro-F1"),
-        ],
-    ):
-        matrix = np.full((N_DATASETS, len(CLASSIFIERS_TEST)), np.nan)
+    matrix = np.full((N_DATASETS, len(CLASSIFIERS_TEST)), np.nan)
 
-        for j, clf in enumerate(CLASSIFIERS_TEST):
-            clf_df = df[df["Classifier_Norm"] == clf]
-            for ds in range(1, N_DATASETS + 1):
-                row = clf_df[clf_df["Dataset_Num"] == ds]
-                if not row.empty:
-                    matrix[ds - 1, j] = float(row["Test_F1_Macro"].values[0])
+    for j, clf in enumerate(CLASSIFIERS_TEST):
+        clf_df = df[df["Classifier_Norm"] == clf]
+        for ds in range(1, N_DATASETS + 1):
+            row = clf_df[clf_df["Dataset_Num"] == ds]
+            if not row.empty:
+                matrix[ds - 1, j] = float(row["Test_F1_Macro"].values[0])
 
-        im = ax.imshow(matrix, cmap="RdYlGn", vmin=0, vmax=1, aspect="auto")
-        ax.set_xticks(range(len(CLASSIFIERS_TEST)))
-        ax.set_xticklabels(CLASSIFIERS_TEST, fontsize=10)
-        ax.set_yticks(range(N_DATASETS))
-        ax.set_yticklabels(ds_labels, fontsize=9)
-        ax.set_title(title, fontsize=12, fontweight="bold", pad=8)
+    im = ax.imshow(matrix, cmap="RdYlGn", vmin=0, vmax=1, aspect="auto")
+    ax.set_xticks(range(len(CLASSIFIERS_TEST)))
+    ax.set_xticklabels(CLASSIFIERS_TEST, fontsize=13)
+    ax.set_yticks(range(N_DATASETS))
+    ax.set_yticklabels(ds_labels, fontsize=12)
+    ax.set_title(title, fontsize=15, fontweight="bold", pad=12)
 
-        for i in range(N_DATASETS):
-            for j in range(len(CLASSIFIERS_TEST)):
-                val = matrix[i, j]
-                if not np.isnan(val):
-                    text_color = "white" if val < 0.3 or val > 0.75 else "black"
-                    ax.text(
-                        j,
-                        i,
-                        f"{val:.2f}",
-                        ha="center",
-                        va="center",
-                        fontsize=8,
-                        color=text_color,
-                        fontweight="bold",
-                    )
+    for i in range(N_DATASETS):
+        for j in range(len(CLASSIFIERS_TEST)):
+            val = matrix[i, j]
+            if not np.isnan(val):
+                text_color = "white" if val < 0.3 or val > 0.75 else "black"
+                ax.text(
+                    j,
+                    i,
+                    f"{val:.2f}",
+                    ha="center",
+                    va="center",
+                    fontsize=11,
+                    color=text_color,
+                    fontweight="bold",
+                )
 
-        ax.axhline(y=7.5, color="white", linewidth=2.5)
-        plt.colorbar(im, ax=ax, fraction=0.03, pad=0.04, label="Macro-F1")
+    ax.axhline(y=7.5, color="white", linewidth=3.0)
+    cbar = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.04)
+    cbar.set_label("Macro-F1", fontsize=13)
+    cbar.ax.tick_params(labelsize=12)
 
-    fig.suptitle("Test Macro-F1 Heatmap - Phase 1 vs Phase 2", fontsize=14, fontweight="bold", y=1.02)
-    fig.tight_layout()
-    save_figure(fig, os.path.join(OUTPUT_DIR, "figure_heatmaps.png"))
+    fig.tight_layout(pad=3.0)
+    save_figure(fig, os.path.join(OUTPUT_DIR, output_name))
 
 
 # ============================================================================
@@ -694,17 +695,19 @@ def plot_confusion_matrix_from_csv(csv_path: str, title: str, output_filename: s
         return
 
     df = pd.read_csv(csv_path, index_col=0)
-    fig, ax = plt.subplots(figsize=scaled_size(7, 6))
+    fig, ax = plt.subplots(figsize=scaled_size(11, 10))
 
     im = ax.imshow(df.values, cmap="Blues", interpolation="nearest", aspect="auto")
-    fig.colorbar(im, ax=ax)
-    ax.set_title(title)
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar.ax.tick_params(labelsize=12)
+
+    ax.set_title(title, fontweight="bold", pad=12)
     ax.set_xlabel("Predicted")
     ax.set_ylabel("Actual")
     ax.set_xticks(range(len(df.columns)))
-    ax.set_xticklabels([str(c) for c in df.columns], rotation=45)
+    ax.set_xticklabels([str(c) for c in df.columns], rotation=45, fontsize=12)
     ax.set_yticks(range(len(df.index)))
-    ax.set_yticklabels([str(i) for i in df.index])
+    ax.set_yticklabels([str(i) for i in df.index], fontsize=12)
 
     max_value = df.values.max() if df.values.size else 0
     threshold = max_value / 2 if max_value > 0 else 0
@@ -719,10 +722,11 @@ def plot_confusion_matrix_from_csv(csv_path: str, title: str, output_filename: s
                 ha="center",
                 va="center",
                 color="white" if value > threshold else "black",
-                fontsize=8,
+                fontsize=12,
+                fontweight="bold",
             )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=3.0)
     save_figure(fig, os.path.join(CONFUSION_DIR, output_filename))
 
 
@@ -775,11 +779,29 @@ def main() -> None:
     figure_combined_average_test_macro_f1(all_df)
     figure_combined_group_macro_f1(all_df)
 
-    if phase1_df is not None and phase2_df is not None:
-        figure_line_chart(phase1_df, phase2_df)
-        figure_heatmaps(phase1_df, phase2_df)
-    else:
-        print("Skipping line chart and heatmaps because both phase files are required.")
+    if phase1_df is not None:
+        figure_line_chart_single_phase(
+            phase1_df,
+            "Phase 1 - Test Macro-F1 per Dataset",
+            "phase1_line_chart.png",
+        )
+        figure_heatmap_single_phase(
+            phase1_df,
+            "Phase 1 - Test Macro-F1 Heatmap",
+            "phase1_heatmap.png",
+        )
+
+    if phase2_df is not None:
+        figure_line_chart_single_phase(
+            phase2_df,
+            "Phase 2 - Test Macro-F1 per Dataset",
+            "phase2_line_chart.png",
+        )
+        figure_heatmap_single_phase(
+            phase2_df,
+            "Phase 2 - Test Macro-F1 Heatmap",
+            "phase2_heatmap.png",
+        )
 
     print("Generating confusion matrices...")
     for csv_path, title, output_filename in build_confusion_targets():
