@@ -1,2 +1,2 @@
 Dataset,Accuracy Mean,Accuracy Std,F1 Mean,F1 Std,Accuracy Mean ± Std,F1 Mean ± Std,Total_Time_Seconds
-dataset_10,0.926,0.0083,0.4593,0.0241,0.9260 ± 0.0083,0.4593 ± 0.0241,128.07
+dataset_10,0.926,0.0083,0.4594,0.024,0.9260 ± 0.0083,0.4594 ± 0.0240,58.54

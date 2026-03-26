@@ -1,11 +1,11 @@
 Dataset,Fold,Accuracy,F1,Best_Kernel,Best_C,Best_Gamma,Parameters,Fold_Time_Seconds
-dataset_4,1,0.8707,0.4013,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",45.6
-dataset_4,2,0.8634,0.4872,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",44.22
-dataset_4,3,0.8603,0.3993,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",51.84
-dataset_4,4,0.8727,0.4477,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",45.21
-dataset_4,5,0.8612,0.4607,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",55.34
-dataset_4,6,0.857,0.3984,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",53.4
-dataset_4,7,0.8559,0.3982,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",46.81
-dataset_4,8,0.8601,0.4359,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",49.31
-dataset_4,9,0.8695,0.4711,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",56.95
-dataset_4,10,0.8528,0.4237,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",58.43
+dataset_4,1,0.8707,0.4013,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",34.77
+dataset_4,2,0.8634,0.4872,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",32.64
+dataset_4,3,0.8603,0.3993,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",32.57
+dataset_4,4,0.8727,0.4477,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",31.11
+dataset_4,5,0.8612,0.4607,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",27.86
+dataset_4,6,0.857,0.3984,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",31.98
+dataset_4,7,0.8559,0.3982,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",30.1
+dataset_4,8,0.8601,0.4359,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",28.64
+dataset_4,9,0.8695,0.4711,rbf,10,scale,"{'kernel': 'rbf', 'C': 10, 'gamma': 'scale'}",30.82
+dataset_4,10,0.8528,0.4237,rbf,10,auto,"{'kernel': 'rbf', 'C': 10, 'gamma': 'auto'}",30.49

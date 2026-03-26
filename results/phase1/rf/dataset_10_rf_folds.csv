@@ -1,11 +1,11 @@
 Dataset,Fold,Accuracy,F1,Best_N_Estimators,Best_Max_Depth,Best_Min_Samples_Split,Parameters,Fold_Time_Seconds
-dataset_10,1,0.952,0.5441,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",30.49
-dataset_10,2,0.946,0.4752,100,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",28.95
-dataset_10,3,0.9472,0.5377,200,10.0,2,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 200}",28.71
-dataset_10,4,0.946,0.5203,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",30.01
-dataset_10,5,0.9484,0.5293,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",30.49
-dataset_10,6,0.9436,0.5381,200,,5,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}",29.14
-dataset_10,7,0.952,0.4564,200,10.0,5,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",27.44
-dataset_10,8,0.9544,0.5133,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",36.87
-dataset_10,9,0.94,0.4652,100,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",30.49
-dataset_10,10,0.946,0.4957,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",29.87
+dataset_10,1,0.952,0.5441,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",7.18
+dataset_10,2,0.946,0.4752,100,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",10.33
+dataset_10,3,0.9472,0.5377,200,10.0,2,"{'max_depth': 10, 'min_samples_split': 2, 'n_estimators': 200}",8.89
+dataset_10,4,0.946,0.5203,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",7.41
+dataset_10,5,0.9484,0.5293,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",8.95
+dataset_10,6,0.9436,0.5381,200,,5,"{'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}",9.52
+dataset_10,7,0.952,0.4564,200,10.0,5,"{'max_depth': 10, 'min_samples_split': 5, 'n_estimators': 200}",7.38
+dataset_10,8,0.9544,0.5133,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",7.23
+dataset_10,9,0.94,0.4652,100,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}",8.68
+dataset_10,10,0.946,0.4957,200,,2,"{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 200}",9.81
